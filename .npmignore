@@ -1,0 +1,7 @@
+/.*/
+/demo/
+/test/
+/.*
+/bower.json
+/karma.conf.js
+/src
