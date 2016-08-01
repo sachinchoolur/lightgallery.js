@@ -24,10 +24,10 @@
   "authors": [
       "Sachin N <sachi77n@gmail.com>"
   ],
-  "homepage": "http://sachinchoolur.github.io/lightGallery/",
+  "homepage": "http://sachinchoolur.github.io/lightgallery.js/",
   "repository": {
       "type": "git",
-      "url": "git://github.com/sachinchoolur/lightGallery.git"
+      "url": "git://github.com/sachinchoolur/lightgallery.js.git"
   },
   "license": "Apache-2.0",
   "ignore": [
