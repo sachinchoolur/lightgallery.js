@@ -37,7 +37,7 @@
                         <li><a href="../docs/">Docs<span class="border"></span></a></li>
                         <li class="active"><a href="../demos/">Demos<span class="border"></span></a></li>
                         <li><a target="_blank" href="https://github.com/sachinchoolur/lightGallery">Github<span class="border"></span></a></li>
-                        <li><a target="_blank" href="http://www.teamwave.com/">Teamwave<span class="border"></span></a></li>
+                        <li><a target="_blank" href="http://www.teamwave.com/" onclick="ga('send', 'event', 'teamwave', 'teamwave');">Teamwave<span class="border"></span></a></li> 
                         
                     </ul>
                 </div>
@@ -205,13 +205,15 @@ lightGallery(document.getElementById('hash'), {
             <a target="_blank" href="https://in.linkedin.com/in/sachinchoolur"><img src="../static/img/social/linked-in.png"></a>
         </footer>
         <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-49767543-2', 'sachinchoolur.github.io');
-        ga('send', 'pageview');
-        </script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49767543-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="../static/js/prettify.js"></script>
         <script src="../static/js/transition.js"></script>

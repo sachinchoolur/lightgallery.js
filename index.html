@@ -85,7 +85,7 @@
                                 <li><a href="docs/">Docs<span class="border"></span></a></li>
                                 <li><a href="demos/">Demos<span class="border"></span></a></li>
                                 <li><a target="_blank" href="https://github.com/sachinchoolur/lightgallery.js">Github<span class="border"></span></a></li>
-                                <li><a target="_blank" href="http://www.teamwave.com/">Teamwave<span class="border"></span></a></li>
+                                <li><a target="_blank" href="http://www.teamwave.com/" onclick="ga('send', 'event', 'teamwave', 'teamwave');">Teamwave<span class="border"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                                 </div>
                                 <div class="desc">
                                     <h3>Animated thumbnails </h3>
-                                    <p>You also have the option to enable animated<a href="demos/"> thumbnails</a> from the settings. otherwise normal thumbnail will be used. You can also make thumbnails automatically load for your YouTube or vimeo videos.</p>
+                                    <p>You also have the option to enable animated<a href="demos/"> thumbnails</a> from the settings. otherwise normal thumbnail will be used. You can also make thumbnails automatically load for your YouTube or Vimeo videos.</p>
                                 </div>
                             </div>
                         </div>
@@ -396,7 +396,7 @@
 
             <section class="other-projects section highlight" style="background-color: rgb(255, 255, 255); padding-bottom: 25px;">
                 <div class="container-fluid">
-                    <p>Lightgallery is an open source project from <a href="http://teamwave.com/" target="_blank">Teamwave.</a> Check teamwave file module to see lightgallery in action.</p>
+                    <p>Lightgallery is an open source project from <a onclick="ga('send', 'event', 'teamwave', 'teamwave');" href="http://www.teamwave.com/" target="_blank">Teamwave.</a> Check teamwave file module to see lightgallery in action.</p>
                     <h4 style="margin-top: 25px;">About me </h4>
                     <p style="line-height: 1.5; margin-bottom: 6px;">My name is Sachin. I'm a UI/UX designer and web developer from Bangalore, India. I’ve helped some ambitious teams get stuff done. Want to work with me, or just want to say hello? Drop me an email at <a href="mailto:sachi77n@gmail.com">sachi77n@gmail.com.</a></p>
                     <img src="./static/img/companees.png" class="img-responsive" style="opacity: 0.6;">
@@ -408,13 +408,15 @@
             <a target="_blank" href="https://in.linkedin.com/in/sachinchoolur"><img src="./static/img/social/linked-in.png"></a>
         </footer>
         <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-49767543-2', 'sachinchoolur.github.io');
-        ga('send', 'pageview');
-        </script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49767543-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
         <script src="static/js/jquery.min.js"></script>
         <script src="static/js/transition.js"></script>
         <script src="static/js/wow.js"></script>
