@@ -1,0 +1,36 @@
+{
+  "name": "lightgallery.js",
+  "version": "0.0.1",
+  "description": "Full featured lightbox gallery. Zero dependencies",
+  "main": [
+      "dist/js/lightgallery.min.js",
+      "dist/css/lightgallery.css",
+      "dist/fonts/lg.eot",
+      "dist/fonts/lg.svg",
+      "dist/fonts/lg.ttf",
+      "dist/fonts/lg.woff",
+      "dist/img/loading.gif",
+      "dist/img/video-play.png",
+      "dist/img/vimeo-play.png",
+      "dist/img/youtube-play.png"
+  ],
+  "keywords": [
+      "gallery",
+      "lightbox",
+      "image",
+      "youtube",
+      "vimeo"
+  ],
+  "authors": [
+      "Sachin N <sachi77n@gmail.com>"
+  ],
+  "homepage": "http://sachinchoolur.github.io/lightGallery/",
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/sachinchoolur/lightGallery.git"
+  },
+  "license": "Apache-2.0",
+  "ignore": [
+      "README.md"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "lightgallery.js",
+  "version": "0.0.1",
+  "description": "Full featured lightbox gallery. Zero dependencies",
+  "keywords": [
+    "gallery",
+    "lightbox",
+    "image",
+    "youtube",
+    "vimeo",
+    "dailymotion",
+    "html5 videos",
+    "thumbnails",
+    "zoom",
+    "fullscreen",
+    "responsive",
+    "touch",
+    "drag"
+  ],
+  "homepage": "http://sachinchoolur.github.io/lightgallery.js/",
+  "bugs": {
+    "url": "https://github.com/sachinchoolur/lightgallery.js/issues"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Sachin N",
+    "email": "sachi77n@gmail.com",
+    "url": "https://github.com/sachinchoolur"
+  },
+  "main": "lib/js/lightgallery.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sachinchoolur/lightgallery.js.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-plugin-transform-es2015-modules-umd": "^6.5.0",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babelify": "^7.2.0",
+    "bannerify": "^1.0.1",
+    "browserify": "^13.0.0",
+    "clean-css": "^3.4.19",
+    "copyfiles": "^1.0.0",
+    "install": "^0.4.4",
+    "jshint": "^2.9.2",
+    "uglify-js": "^2.4.24",
+    "watchify": "^3.4.0"
+  },
+  "scripts": {
+    "build": "npm run copyfiles && npm run css && npm run build-debug && npm run build-min",
+    "build-debug": "browserify src/js/lightgallery.js -s Lightgallery -t [babelify] -p [bannerify --file .banner ] -o dist/js/lightgallery.js",
+    "build-min": "uglifyjs dist/js/lightgallery.js --comments '/!/' -m screw_ie8=true -c screw_ie8=true,unused=false -o dist/js/lightgallery.min.js",
+    "watch": "watchify src/js/lightgallery.js -s Lightgallery -t [babelify] -o dist/js/lightgallery.js -v",
+    "dev": "watchify src/js/lightgallery.js -s Lightgallery -t [babelify] -o ../../lightgallery.js/lightgallery/js/lightgallery.js -v",
+    "css": "cleancss -o dist/css/lightgallery.min.css dist/css/lightgallery.css && cleancss -o dist/css/lg-fb-comment-box.min.css dist/css/lg-fb-comment-box.css && cleancss -o dist/css/lg-transitions.min.css dist/css/lg-transitions.css",
+    "test": "karma start --single-run",
+    "copyfiles": "copyfiles -u 1 ./src/fonts/** dist && copyfiles -u 1 ./src/img/** dist && copyfiles -u 1 ./src/css/** dist",
+    "lint": "jshint src",
+    "prepublish": "babel src --out-dir lib --loose all"
+  }
+}
