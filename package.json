@@ -57,7 +57,6 @@
     "watch": "watchify src/js/lightgallery.js -s Lightgallery -t [babelify] -o dist/js/lightgallery.js -v",
     "dev": "watchify src/js/lightgallery.js -s Lightgallery -t [babelify] -o ../../lightgallery.js/lightgallery/js/lightgallery.js -v",
     "css": "cleancss -o dist/css/lightgallery.min.css dist/css/lightgallery.css && cleancss -o dist/css/lg-fb-comment-box.min.css dist/css/lg-fb-comment-box.css && cleancss -o dist/css/lg-transitions.min.css dist/css/lg-transitions.css",
-    "test": "karma start --single-run",
     "copyfiles": "copyfiles -u 1 ./src/fonts/** dist && copyfiles -u 1 ./src/img/** dist && copyfiles -u 1 ./src/css/** dist",
     "lint": "jshint src",
     "prepublish": "babel src --out-dir lib --loose all"
