@@ -60,15 +60,12 @@ $ npm install lightgallery.js
 
 You can also directly download lightgallery from github.
 
-#### Cdnjs
-
-If you prefer to use a CDN you can load files via [cdnjs](https://cdnjs.com/libraries/lightgallery)
 
 #### Include CSS and Javascript files
 First of all add lightgallery.css in the &lt;head&gt; of the document.
 ``` html
 <head>
-    <link type="text/css" rel="stylesheet" href="css/lightGallery.css" /> 
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" /> 
 </head>
 ```
 Then include jQuery and lightgallery.min.js into your document.
@@ -176,7 +173,7 @@ Please use GitHub [issue tracker](https://github.com/sachinchoolur/lightgallery.
 
 Please use [stackoverflow](https://stackoverflow.com/search?q=lightgallery) instead of github issue tracker if you need any help with implementing lightgallery in your project or if you have any personal support requests.
 
-Do you like lightgallery? You can support the project by staring the github repository or [tweet](https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fabout.twitter.com%2Fresources%2Fbuttons&ref_src=twsrc%5Etfw&text=lightGallery%20-%20The%20complete%20%23jQuery%20lightbox%20gallery%20plugin.%20%23javascript&tw_p=tweetbutton&url=http%3A%2F%2Fsachinchoolur.github.io%2FlightGallery%2F) about this project.
+Do you like lightgallery? You can support the project by staring the github repository or [tweet](https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fabout.twitter.com%2Fresources%2Fbuttons&ref_src=twsrc%5Etfw&text=lightgallery%20-%20Full%20featured%20%23javascript%20lightbox%20gallery%2C%20No%20%23jQuery%20-%20http%3A%2F%2Fbit.ly%2F2amlfJe) about this project.
 
 Follow me on twitter [@sachinchoolur](https://twitter.com/sachinchoolur) for the latest news, updates about this project.
 
