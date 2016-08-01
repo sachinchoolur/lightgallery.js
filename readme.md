@@ -4,10 +4,10 @@
 
 # lightGallery
 Full featured javascript lightbox gallery. No dependencies.
-![lightgallery](https://raw.githubusercontent.com/sachinchoolur/lightgallery.js/master/lib/lg.png)
+![lightgallery](https://raw.githubusercontent.com/sachinchoolur/lightgallery.js/gh-pages/lightgallery.png)
 Demo
 ---
-[lightGallery demo](http://sachinchoolur.github.io/lightgallery.js/). [Codepen demo](http://codepen.io/sachinchoolur/details/QjLNMM/) 
+[lightGallery demo](http://sachinchoolur.github.io/lightgallery.js/). [Codepen demo](http://codepen.io/sachinchoolur/pen/qNyvGW) 
 
 Main features
 ---
