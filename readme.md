@@ -1,4 +1,4 @@
-# lightgallery
+# lightgallery.js
 
 ![travis](https://travis-ci.org/sachinchoolur/lightgallery.js.svg?branch=master)
 ![bower](https://img.shields.io/bower/v/lightgallery.js.svg)
