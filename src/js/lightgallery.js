@@ -54,7 +54,7 @@ var defaults = {
     controls: true,
     slideEndAnimatoin: true,
     hideControlOnEnd: false,
-    mousewheel: true,
+    mousewheel: false,
 
     getCaptionFromTitleOrAlt: true,
 
