@@ -427,6 +427,10 @@ Plugin.prototype.doCss = function() {
  */
 Plugin.prototype.isVideo = function(src, index) {
 
+    if(!src || !index) {
+        return false;
+    }
+
     var html;
     if (this.s.dynamic) {
         html = this.s.dynamicEl[index].html;
