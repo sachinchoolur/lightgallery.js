@@ -1,5 +1,5 @@
 /**!
- * lg-thumbnail.js | 0.0.2 | August 1st 2016
+ * lg-thumbnail.js | 0.0.3 | August 4th 2016
  * http://sachinchoolur.github.io/lg-thumbnail.js
  * Copyright (c) 2016 Sachin N; 
  * @license Apache 2.0 
@@ -393,7 +393,7 @@
         utils.on(_this.core.outer.querySelector('.lg-thumb'), 'touchstart.lg', function (e) {
             if (_this.thumbTotalWidth > _this.thumbOuterWidth) {
                 e.preventDefault();
-                startCoords = e.originalEvent.targetTouches[0].pageX;
+                startCoords = e.targetTouches[0].pageX;
                 _this.thumbClickable = false;
             }
         });
@@ -401,7 +401,7 @@
         utils.on(_this.core.outer.querySelector('.lg-thumb'), 'touchmove.lg', function (e) {
             if (_this.thumbTotalWidth > _this.thumbOuterWidth) {
                 e.preventDefault();
-                endCoords = e.originalEvent.targetTouches[0].pageX;
+                endCoords = e.targetTouches[0].pageX;
                 isMoved = true;
 
                 utils.addClass(_this.thumbOuter, 'lg-dragging');
