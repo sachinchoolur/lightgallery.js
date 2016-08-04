@@ -1,9 +1,4 @@
-/**!
- * lightgallery.js | 0.0.1 | August 2nd 2016
- * http://sachinchoolur.github.io/lightGallery/
- * Copyright (c) 2016 Sachin N; 
- * @license Apache 2.0 
- */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Lightgallery = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Lightgallery = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
         define(['exports'], factory);
@@ -576,7 +571,7 @@
         }
 
         // Store the current scroll top value to scroll back after closing the gallery..
-        this.prevScrollTop = document.body.scrollTop;
+        this.prevScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     };
 
     // For fixed height gallery
@@ -1327,7 +1322,7 @@
                     if (!_lgUtils2.default.hasClass(_this.outer, 'lg-zoomed') && !_this.lgBusy) {
                         e.preventDefault();
                         _this.manageSwipeClass();
-                        startCoords = e.originalEvent.targetTouches[0].pageX;
+                        startCoords = e.targetTouches[0].pageX;
                     }
                 });
             }
@@ -1337,7 +1332,7 @@
                 _lgUtils2.default.on(_this.___slide[j], 'touchmove.lg', function (e) {
                     if (!_lgUtils2.default.hasClass(_this.outer, 'lg-zoomed')) {
                         e.preventDefault();
-                        endCoords = e.originalEvent.targetTouches[0].pageX;
+                        endCoords = e.targetTouches[0].pageX;
                         _this.touchMove(startCoords, endCoords);
                         isMoved = true;
                     }
@@ -1507,6 +1502,7 @@
         }
 
         document.body.scrollTop = _this.prevScrollTop;
+        document.documentElement.scrollTop = _this.prevScrollTop;
 
         /**
          * if d is false or undefined destroy will only close the gallery
