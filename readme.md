@@ -173,14 +173,14 @@ If you like lightgallery please support the project by staring the repository or
 
 ## Built in modules
 
-1. [Thumbnail](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-thumbnial)
-2. [Autoplay](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-autoplay)
-3. [Video](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-video)
-4. [Fullscreen](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-fullscreen)
-5. [Pager](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-pager)
-6. [Zoom](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-zoom)
-7. [Hash](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
-7. [Share](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
+1. Thumbnail - [GItHub](https://github.com/sachinchoolur/lg-thumbnial.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-thumbnial)
+2. Autoplay - [GItHub](https://github.com/sachinchoolur/lg-autoplay.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-autoplay)
+3. Video - [GItHub](https://github.com/sachinchoolur/lg-video.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-video)
+4. Fullscreen - [GItHub](https://github.com/sachinchoolur/lg-fullscreen.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-fullscreen)
+5. Pager - [GItHub](https://github.com/sachinchoolur/lg-pager.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-pager)
+6. Zoom - [GItHub](https://github.com/sachinchoolur/lg-zoom.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-zoom)
+7. Hash - [GItHub](https://github.com/sachinchoolur/lg-hash.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
+8. Share - [GItHub](https://github.com/sachinchoolur/lg-share.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
 
 ## Support
 
