@@ -1050,13 +1050,13 @@ lightGallery(lg);
                                     </h3>
                                     <div class="sample-code html">
 <pre class="prettyprint linenums lang-js">
-var $lg = $('#lightgallery');
+var el = document.getElementById('lightgallery');
 
-$lg.lightGallery();
+lightGallery(el);
 
 // Go to third slide
 // Index starts from 0
-$lg.data('lightGallery').slide(2);
+window.lgData[el.getAttribute('lg-uid')].slide(2);
 </pre>
                                     </div>
                                 </div>
