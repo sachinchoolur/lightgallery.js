@@ -127,10 +127,13 @@
                     <div class="sample-code js">
                         <pre class="prettyprint linenums lang-js">
 var el = document.getElementById('methods');
+
 var slide = '&lt;a href="img/img2.jpg"&gt;' +
     '&lt;img src="img/thumb2.jpg" /&gt;' +
 '&lt;/a&gt;';
+
 lightGallery(el);
+
 document.getElementById('appendSlide').addEventListener('click', function() {
     el.insertAdjacentHTML('beforeend', slide);
     window.lgData[el.getAttribute('lg-uid')].destroy(true);
