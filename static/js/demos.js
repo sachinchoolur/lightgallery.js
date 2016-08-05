@@ -209,8 +209,8 @@ $(document).ready(function() {
         });
     }
 
+    var commentBoxSep = document.getElementById('comment-box-sep');
     if (commentBoxSep) {
-        var commentBoxSep = document.getElementById('comment-box-sep');
         lightGallery(commentBoxSep, {
             addClass: 'fb-comments',
             download: false,
@@ -224,7 +224,7 @@ $(document).ready(function() {
                     FB.XFBML.parse();
                 });
             }
-        });        
+        });     
     }
 
 });
