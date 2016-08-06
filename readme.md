@@ -92,8 +92,8 @@ Lightgallery also supports AMD, CommonJS and ES6 modules
 When you use AMD make sure that lightgallery.js is loaded before lightgallery modules.
 
 ```js
-require(['./lightgallery'], function() {
-    require(["./lg-zoom", "./lg-thumbnail"], function(){
+require(['./lightgallery.js'], function() {
+    require(["./lg-zoom.js", "./lg-thumbnail.js"], function(){
         lightGallery(document.getElementById('lightgallery'));
     });
 });
