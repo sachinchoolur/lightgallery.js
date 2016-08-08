@@ -88,7 +88,7 @@ If you want to include any lightgallery plugin you can include it after `lightga
 </body>
 ```
 
-Lightgallery also supports AMD, CommonJS and ES6 modules
+Lightgallery also supports AMD, CommonJS and ES6 modules.
 When you use AMD make sure that lightgallery.js is loaded before lightgallery modules.
 
 ```js
