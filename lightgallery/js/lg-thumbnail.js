@@ -40,7 +40,7 @@
 
         exThumbImage: false,
         showThumbByDefault: true,
-        toogleThumb: true,
+        toggleThumb: true,
         pullCaptionUp: true,
 
         enableThumbDrag: true,
@@ -104,7 +104,7 @@
                 this.thumbClickable = true;
             }
 
-            this.toogle();
+            this.toggle();
             this.thumbkeyPress();
         }
     };
@@ -438,12 +438,12 @@
         });
     };
 
-    Thumbnail.prototype.toogle = function () {
+    Thumbnail.prototype.toggle = function () {
         var _this = this;
-        if (_this.core.s.toogleThumb) {
+        if (_this.core.s.toggleThumb) {
             utils.addClass(_this.core.outer, 'lg-can-toggle');
-            _this.thumbOuter.insertAdjacentHTML('beforeend', '<span class="lg-toogle-thumb lg-icon"></span>');
-            utils.on(_this.core.outer.querySelector('.lg-toogle-thumb'), 'click.lg', function () {
+            _this.thumbOuter.insertAdjacentHTML('beforeend', '<span class="lg-toggle-thumb lg-icon"></span>');
+            utils.on(_this.core.outer.querySelector('.lg-toggle-thumb'), 'click.lg', function () {
                 if (utils.hasClass(_this.core.outer, 'lg-thumb-open')) {
                     utils.removeClass(_this.core.outer, 'lg-thumb-open');
                 } else {
