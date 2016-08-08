@@ -1,8 +1,8 @@
 /**!
  * lightgallery.js | 0.0.2 | August 4th 2016
  * http://sachinchoolur.github.io/lightGallery/
- * Copyright (c) 2016 Sachin N; 
- * @license Apache 2.0 
+ * Copyright (c) 2016 Sachin N;
+ * @license Apache 2.0
  */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Lightgallery = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
@@ -298,6 +298,7 @@
 
         iframeMaxWidth: '100%',
 
+        toolbar: true,
         download: true,
         counter: true,
         appendCounterTo: '.lg-toolbar',
@@ -493,6 +494,7 @@
         var controls = '';
         var i = 0;
         var subHtmlCont = '';
+        var toolbar = '';
         var template;
         var _this = this;
 
@@ -513,7 +515,14 @@
             subHtmlCont = '<div class="lg-sub-html"></div>';
         }
 
-        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + '<div class="lg-toolbar group">' + '<span class="lg-close lg-icon"></span>' + '</div>' + controls + subHtmlCont + '</div>' + '</div>';
+        if (this.s.toolbar) {
+            console.log('we have a toolbar!')
+            toolbar = '<div class="lg-toolbar group">' + '<span class="lg-close lg-icon"></span>' + '</div>';
+        }
+
+
+
+        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + toolbar + controls + subHtmlCont + '</div>' + '</div>';
 
         document.body.insertAdjacentHTML('beforeend', template);
         this.outer = document.querySelector('.lg-outer');
@@ -945,7 +954,7 @@
         ** ** avoid simultaneous image load
     <=> ** Preload() will check for s.preload value and call loadContent() again accoring to preload value
         ** loadContent()  <====> Preload();
-    
+
     *   @param {Number} index - index of the slide
     *   @param {Boolean} fromTouch - true if slide function called via touch event or mouse drag
     *   @param {Boolean} fromThumb - true if slide function called via thumbnail click

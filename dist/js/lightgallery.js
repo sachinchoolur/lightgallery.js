@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 0.0.2 | August 4th 2016
+ * lightgallery.js | 0.0.2 | August 8th 2016
  * http://sachinchoolur.github.io/lightGallery/
  * Copyright (c) 2016 Sachin N; 
  * @license Apache 2.0 
@@ -298,6 +298,7 @@
 
         iframeMaxWidth: '100%',
 
+        toolbar: true,
         download: true,
         counter: true,
         appendCounterTo: '.lg-toolbar',
@@ -493,6 +494,7 @@
         var controls = '';
         var i = 0;
         var subHtmlCont = '';
+        var toolbar = '';
         var template;
         var _this = this;
 
@@ -513,7 +515,11 @@
             subHtmlCont = '<div class="lg-sub-html"></div>';
         }
 
-        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + '<div class="lg-toolbar group">' + '<span class="lg-close lg-icon"></span>' + '</div>' + controls + subHtmlCont + '</div>' + '</div>';
+        if (this.s.toolbar) {
+            toolbar = '<div class="lg-toolbar group">' + '<span class="lg-close lg-icon"></span>' + '</div>';
+        }
+
+        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + toolbar + controls + subHtmlCont + '</div>' + '</div>';
 
         document.body.insertAdjacentHTML('beforeend', template);
         this.outer = document.querySelector('.lg-outer');
