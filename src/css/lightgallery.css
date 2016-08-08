@@ -341,7 +341,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .lg-outer.lg-pull-caption-up.lg-thumb-open .lg-sub-html {
   bottom: 100px;
 }
-.lg-outer .lg-toogle-thumb {
+.lg-outer .lg-toggle-thumb {
   background-color: #0D0A0A;
   border-radius: 2px 2px 0 0;
   color: #999;
@@ -356,10 +356,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   top: -39px;
   width: 50px;
 }
-.lg-outer .lg-toogle-thumb:after {
+.lg-outer .lg-toggle-thumb:after {
   content: "\e1ff";
 }
-.lg-outer .lg-toogle-thumb:hover {
+.lg-outer .lg-toggle-thumb:hover {
   color: #FFF;
 }
 
