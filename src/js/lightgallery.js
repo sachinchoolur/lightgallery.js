@@ -380,7 +380,7 @@ Plugin.prototype.structure = function() {
     }
 
     // Store the current scroll top value to scroll back after closing the gallery..
-    this.prevScrollTop = document.body.scrollTop;
+    this.prevScrollTop = (document.documentElement.scrollTop || document.body.scrollTop)
 
 };
 
@@ -1145,7 +1145,7 @@ Plugin.prototype.enableSwipe = function() {
                 if (!utils.hasClass(_this.outer, 'lg-zoomed') && !_this.lgBusy) {
                     e.preventDefault();
                     _this.manageSwipeClass();
-                    startCoords = e.originalEvent.targetTouches[0].pageX;
+                    startCoords = e.targetTouches[0].pageX;
                 }
             });
         }
@@ -1155,7 +1155,7 @@ Plugin.prototype.enableSwipe = function() {
             utils.on(_this.___slide[j], 'touchmove.lg', function(e) {
                 if (!utils.hasClass(_this.outer, 'lg-zoomed')) {
                     e.preventDefault();
-                    endCoords = e.originalEvent.targetTouches[0].pageX;
+                    endCoords = e.targetTouches[0].pageX;
                     _this.touchMove(startCoords, endCoords);
                     isMoved = true;
                 }
@@ -1333,6 +1333,7 @@ Plugin.prototype.destroy = function(d) {
     }
 
     document.body.scrollTop = _this.prevScrollTop;
+    document.documentElement.scrollTop = _this.prevScrollTop;
 
     /**
      * if d is false or undefined destroy will only close the gallery

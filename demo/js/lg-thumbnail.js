@@ -1,5 +1,5 @@
 /**!
- * lg-thumbnail.js | 0.0.2 | August 1st 2016
+ * lg-thumbnail.js | 0.0.4 | August 9th 2016
  * http://sachinchoolur.github.io/lg-thumbnail.js
  * Copyright (c) 2016 Sachin N; 
  * @license Apache 2.0 
@@ -45,7 +45,7 @@
 
         exThumbImage: false,
         showThumbByDefault: true,
-        toogleThumb: true,
+        toggleThumb: true,
         pullCaptionUp: true,
 
         enableThumbDrag: true,
@@ -109,7 +109,7 @@
                 this.thumbClickable = true;
             }
 
-            this.toogle();
+            this.toggle();
             this.thumbkeyPress();
         }
     };
@@ -393,7 +393,7 @@
         utils.on(_this.core.outer.querySelector('.lg-thumb'), 'touchstart.lg', function (e) {
             if (_this.thumbTotalWidth > _this.thumbOuterWidth) {
                 e.preventDefault();
-                startCoords = e.originalEvent.targetTouches[0].pageX;
+                startCoords = e.targetTouches[0].pageX;
                 _this.thumbClickable = false;
             }
         });
@@ -401,7 +401,7 @@
         utils.on(_this.core.outer.querySelector('.lg-thumb'), 'touchmove.lg', function (e) {
             if (_this.thumbTotalWidth > _this.thumbOuterWidth) {
                 e.preventDefault();
-                endCoords = e.originalEvent.targetTouches[0].pageX;
+                endCoords = e.targetTouches[0].pageX;
                 isMoved = true;
 
                 utils.addClass(_this.thumbOuter, 'lg-dragging');
@@ -443,12 +443,12 @@
         });
     };
 
-    Thumbnail.prototype.toogle = function () {
+    Thumbnail.prototype.toggle = function () {
         var _this = this;
-        if (_this.core.s.toogleThumb) {
+        if (_this.core.s.toggleThumb) {
             utils.addClass(_this.core.outer, 'lg-can-toggle');
-            _this.thumbOuter.insertAdjacentHTML('beforeend', '<span class="lg-toogle-thumb lg-icon"></span>');
-            utils.on(_this.core.outer.querySelector('.lg-toogle-thumb'), 'click.lg', function () {
+            _this.thumbOuter.insertAdjacentHTML('beforeend', '<span class="lg-toggle-thumb lg-icon"></span>');
+            utils.on(_this.core.outer.querySelector('.lg-toggle-thumb'), 'click.lg', function () {
                 if (utils.hasClass(_this.core.outer, 'lg-thumb-open')) {
                     utils.removeClass(_this.core.outer, 'lg-thumb-open');
                 } else {

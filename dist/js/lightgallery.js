@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 0.0.1 | August 9th 2016
+ * lightgallery.js | 0.0.3 | August 9th 2016
  * http://sachinchoolur.github.io/lightGallery/
  * Copyright (c) 2016 Sachin N; 
  * @license Apache 2.0 
@@ -576,7 +576,7 @@
         }
 
         // Store the current scroll top value to scroll back after closing the gallery..
-        this.prevScrollTop = document.body.scrollTop;
+        this.prevScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     };
 
     // For fixed height gallery
@@ -1331,7 +1331,7 @@
                     if (!_lgUtils2.default.hasClass(_this.outer, 'lg-zoomed') && !_this.lgBusy) {
                         e.preventDefault();
                         _this.manageSwipeClass();
-                        startCoords = e.originalEvent.targetTouches[0].pageX;
+                        startCoords = e.targetTouches[0].pageX;
                     }
                 });
             }
@@ -1341,7 +1341,7 @@
                 _lgUtils2.default.on(_this.___slide[j], 'touchmove.lg', function (e) {
                     if (!_lgUtils2.default.hasClass(_this.outer, 'lg-zoomed')) {
                         e.preventDefault();
-                        endCoords = e.originalEvent.targetTouches[0].pageX;
+                        endCoords = e.targetTouches[0].pageX;
                         _this.touchMove(startCoords, endCoords);
                         isMoved = true;
                     }
@@ -1511,6 +1511,7 @@
         }
 
         document.body.scrollTop = _this.prevScrollTop;
+        document.documentElement.scrollTop = _this.prevScrollTop;
 
         /**
          * if d is false or undefined destroy will only close the gallery

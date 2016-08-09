@@ -1,6 +1,6 @@
 {
   "name": "lightgallery.js",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Full featured lightbox gallery. Zero dependencies",
   "main": [
       "dist/js/lightgallery.min.js",

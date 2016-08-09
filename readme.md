@@ -88,12 +88,12 @@ If you want to include any lightgallery plugin you can include it after `lightga
 </body>
 ```
 
-Lightgallery also supports AMD, CommonJS and ES6 modules
+Lightgallery also supports AMD, CommonJS and ES6 modules.
 When you use AMD make sure that lightgallery.js is loaded before lightgallery modules.
 
 ```js
-require(['./lightgallery'], function() {
-    require(["./lg-zoom", "./lg-thumbnail"], function(){
+require(['./lightgallery.js'], function() {
+    require(["./lg-zoom.js", "./lg-thumbnail.js"], function(){
         lightGallery(document.getElementById('lightgallery'));
     });
 });
@@ -173,14 +173,14 @@ If you like lightgallery please support the project by staring the repository or
 
 ## Built in modules
 
-1. [Thumbnail](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-thumbnial)
-2. [Autoplay](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-autoplay)
-3. [Video](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-video)
-4. [Fullscreen](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-fullscreen)
-5. [Pager](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-pager)
-6. [Zoom](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-zoom)
-7. [Hash](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
-7. [Share](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
+1. Thumbnail - [GItHub](https://github.com/sachinchoolur/lg-thumbnail.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-thumbnial)
+2. Autoplay - [GItHub](https://github.com/sachinchoolur/lg-autoplay.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-autoplay)
+3. Video - [GItHub](https://github.com/sachinchoolur/lg-video.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-video)
+4. Fullscreen - [GItHub](https://github.com/sachinchoolur/lg-fullscreen.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-fullscreen)
+5. Pager - [GItHub](https://github.com/sachinchoolur/lg-pager.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-pager)
+6. Zoom - [GItHub](https://github.com/sachinchoolur/lg-zoom.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-zoom)
+7. Hash - [GItHub](https://github.com/sachinchoolur/lg-hash.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
+8. Share - [GItHub](https://github.com/sachinchoolur/lg-share.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
 
 ## Support
 
