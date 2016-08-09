@@ -427,8 +427,8 @@ Plugin.prototype.doCss = function() {
  */
 Plugin.prototype.isVideo = function(src, index) {
 
-    if(!src || !index) {
-        return false;
+    if(!src) {
+        throw new Error("No value was provided to isVideo for the src parameter, please check that slide " + index + " has an image/video src");
     }
 
     var html;

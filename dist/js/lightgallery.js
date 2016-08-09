@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 0.0.1 | August 4th 2016
+ * lightgallery.js | 0.0.1 | August 9th 2016
  * http://sachinchoolur.github.io/lightGallery/
  * Copyright (c) 2016 Sachin N; 
  * @license Apache 2.0 
@@ -622,8 +622,8 @@
      */
     Plugin.prototype.isVideo = function (src, index) {
 
-        if (!src || !index) {
-            return false;
+        if (!src) {
+            throw new Error("No value was provided to isVideo for the src parameter, please check that slide " + index + " has an image/video src");
         }
 
         var html;
