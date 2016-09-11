@@ -1,6 +1,6 @@
 /**!
  * <%= pkg.name %> | <%= pkg.version %> | <%= moment().format('MMMM Do YYYY') %>
- * http://sachinchoolur.github.io/lightGallery/
+ * http://sachinchoolur.github.io/lightgallery.js/
  * Copyright (c) 2016 Sachin N; 
  * @license Apache 2.0 
  */
