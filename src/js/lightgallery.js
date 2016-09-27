@@ -369,11 +369,11 @@ Plugin.prototype.structure = function() {
         utils.setVendor(inner, 'TransitionDuration', this.s.speed + 'ms');
     }
 
-    utils.addClass(document.querySelector('.lg-backdrop'), 'in');
 
     setTimeout(function() {
+        utils.addClass(document.querySelector('.lg-backdrop'), 'in');
         utils.addClass(_this.outer, 'lg-visible');
-    }, this.s.backdropDuration);
+    }, 0);
 
     if (this.s.download) {
         this.outer.querySelector('.lg-toolbar').insertAdjacentHTML('beforeend', '<a id="lg-download" target="_blank" download class="lg-download lg-icon"></a>');
@@ -914,7 +914,7 @@ Plugin.prototype.slide = function(index, fromTouch, fromThumb) {
             }, this.s.speed);
 
         } else {
-            _this.loadContent(index, true, _this.s.backdropDuration);
+            _this.loadContent(index, true, 0);
 
             _this.lgBusy = false;
             utils.trigger(_this.el, 'onAfterSlide', {
