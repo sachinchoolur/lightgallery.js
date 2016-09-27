@@ -369,7 +369,10 @@ Plugin.prototype.structure = function() {
         utils.setVendor(inner, 'TransitionDuration', this.s.speed + 'ms');
     }
 
-    utils.addClass(document.querySelector('.lg-backdrop'), 'in');
+    setTimeout(function() {
+        utils.addClass(document.querySelector('.lg-backdrop'), 'in');
+    });
+
 
     setTimeout(function() {
         utils.addClass(_this.outer, 'lg-visible');
@@ -428,7 +431,7 @@ Plugin.prototype.doCss = function() {
 Plugin.prototype.isVideo = function(src, index) {
 
     if(!src) {
-        throw new Error("No value was provided to isVideo for the src parameter, please check that slide " + index + " has an image/video src");
+        throw new Error("Make sure that slide " + index + " has an image/video src");
     }
 
     var html;

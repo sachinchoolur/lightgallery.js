@@ -56,7 +56,7 @@
     "build-debug": "browserify src/js/lightgallery.js -s Lightgallery -t [babelify] -p [bannerify --file .banner ] -o dist/js/lightgallery.js",
     "build-min": "uglifyjs dist/js/lightgallery.js --comments '/!/' -m screw_ie8=true -c screw_ie8=true,unused=false -o dist/js/lightgallery.min.js",
     "watch": "watchify src/js/lightgallery.js -s Lightgallery -t [babelify] -o dist/js/lightgallery.js -v",
-    "dev": "watchify src/js/lightgallery.js -s Lightgallery -t [babelify] -o ../lg/lightgallery.js/lightgallery/js/lightgallery.js -v",
+    "dev": "watchify src/js/lightgallery.js -s Lightgallery -t [babelify] -o dist/js/lightgallery.js -v",
     "css": "cleancss -o dist/css/lightgallery.min.css dist/css/lightgallery.css && cleancss -o dist/css/lg-fb-comment-box.min.css dist/css/lg-fb-comment-box.css && cleancss -o dist/css/lg-transitions.min.css dist/css/lg-transitions.css",
     "copyfiles": "copyfiles -u 1 ./src/fonts/** dist && copyfiles -u 1 ./src/img/** dist && copyfiles -u 1 ./src/css/** dist",
     "lint": "jshint src",
