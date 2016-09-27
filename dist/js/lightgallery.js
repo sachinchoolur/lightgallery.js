@@ -622,6 +622,10 @@
      */
     Plugin.prototype.isVideo = function (src, index) {
 
+        if (!src) {
+            throw new Error("No value was provided to isVideo for the src parameter, please check that slide " + index + " has an image/video src");
+        }
+
         var html;
         if (this.s.dynamic) {
             html = this.s.dynamicEl[index].html;
