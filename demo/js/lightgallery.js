@@ -1,8 +1,8 @@
 /**!
- * lightgallery.js | 0.0.2 | August 4th 2016
- * http://sachinchoolur.github.io/lightGallery/
+ * lightgallery.js | 1.0.0 | October 5th 2016
+ * http://sachinchoolur.github.io/lightgallery.js/
  * Copyright (c) 2016 Sachin N; 
- * @license Apache 2.0 
+ * @license GPLv3 
  */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Lightgallery = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
@@ -104,7 +104,7 @@
         },
 
         trigger: function trigger(el, event) {
-            var detail = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+            var detail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
             if (!el) {
                 return;
@@ -565,7 +565,9 @@
             _lgUtils2.default.setVendor(inner, 'TransitionDuration', this.s.speed + 'ms');
         }
 
-        _lgUtils2.default.addClass(document.querySelector('.lg-backdrop'), 'in');
+        setTimeout(function () {
+            _lgUtils2.default.addClass(document.querySelector('.lg-backdrop'), 'in');
+        });
 
         setTimeout(function () {
             _lgUtils2.default.addClass(_this.outer, 'lg-visible');
@@ -621,6 +623,10 @@
      *  Ex:{ youtube  :  ["//www.youtube.com/watch?v=c0asJgSyxcY", "c0asJgSyxcY"] }
      */
     Plugin.prototype.isVideo = function (src, index) {
+
+        if (!src) {
+            throw new Error("Make sure that slide " + index + " has an image/video src");
+        }
 
         var html;
         if (this.s.dynamic) {
