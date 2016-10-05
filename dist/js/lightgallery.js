@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 0.0.3 | September 27th 2016
+ * lightgallery.js | 1.0.0 | October 5th 2016
  * http://sachinchoolur.github.io/lightgallery.js/
  * Copyright (c) 2016 Sachin N; 
  * @license Apache 2.0 
@@ -104,7 +104,7 @@
         },
 
         trigger: function trigger(el, event) {
-            var detail = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+            var detail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
             if (!el) {
                 return;

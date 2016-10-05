@@ -1,6 +1,6 @@
 {
   "name": "lightgallery.js",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Full featured lightbox gallery. Zero dependencies",
   "keywords": [
     "gallery",
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/sachinchoolur/lightgallery.js/issues"
   },
-  "license": "Apache-2.0",
+  "license": "GPLv3",
   "author": {
     "name": "Sachin N",
     "email": "sachi77n@gmail.com",

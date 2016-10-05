@@ -182,14 +182,13 @@ If you like lightgallery please support the project by staring the repository or
 7. Hash - [GItHub](https://github.com/sachinchoolur/lg-hash.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
 8. Share - [GItHub](https://github.com/sachinchoolur/lg-share.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
 
-## Support
+License
+---
 
-Please use GitHub [issue tracker](https://github.com/sachinchoolur/lightgallery.js/issues/new) in the event that you have come across a bug or glitch. It would also be very helpful if you could add a jsFiddle, which would allow you to demonstrate the problem in question.
+#### Commercial license
+If you want to use lightGallery to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase a lightGallery Commercial License at [uplabs.com/posts/lightgallery-js](https://www.uplabs.com/posts/lightgallery-js)
 
-Please use [stackoverflow](https://stackoverflow.com/search?q=lightgallery) instead of GitHub issue tracker if you need any help with implementing lightgallery in your project or if you have any personal support requests.
+#### Open source license
 
-Do you like lightgallery? You can support the project by staring the GitHub repository or [tweet](https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fabout.twitter.com%2Fresources%2Fbuttons&ref_src=twsrc%5Etfw&text=lightgallery%20-%20Full%20featured%20%23javascript%20lightbox%20gallery%2C%20No%20%23jQuery%20-%20http%3A%2F%2Fbit.ly%2F2amlfJe) about this project.
+If you are creating an open source application under a license compatible with the GNU GPL license v3, you may use this project under the terms of the GPLv3.
 
-Follow me on Twitter [@sachinchoolur](https://twitter.com/sachinchoolur) for the latest news, updates about this project.
-
-I am re-writing [lightslider](https://github.com/sachinchoolur/lightslider) too in pure JavaScript, It will be completely compatible with lightgallery. Watch the repository to get latest updates.
