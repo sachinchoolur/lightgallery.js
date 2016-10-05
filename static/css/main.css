@@ -3798,7 +3798,7 @@ body.home.in .main-cont #hero > .navbar {
   }
 }
 .lg-ad {
-  border: 3px solid #152836;
+  border: 3px solid #0a4f56;
   border-radius: 3px;
   padding: 10px 10px 4px;
   text-align: center;
@@ -3839,4 +3839,72 @@ body.home.in .main-cont #hero > .navbar {
     margin-top: 0px;
     width: auto;
   }
+}
+.license-outer {
+  border: 2px solid #0a4f56;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+  -webkit-transition: border-color 0.15s ease 0s;
+  -o-transition: border-color 0.15s ease 0s;
+  transition: border-color 0.15s ease 0s;
+}
+.license-outer:hover {
+  border-color: #e02c2c;
+}
+.license-outer:hover .price {
+  background-color: #e02c2c !important;
+}
+.license-outer:hover .license {
+  color: #e02c2c;
+}
+.license-outer .license {
+  padding: 20px 20px 0;
+  color: #333;
+  text-align: center;
+  -webkit-transition: color 0.15s ease 0s;
+  -o-transition: color 0.15s ease 0s;
+  transition: color 0.15s ease 0s;
+}
+.license-outer .license:hover,
+.license-outer .license:active,
+.license-outer .license:focus {
+  text-decoration: none;
+  outline: none;
+}
+.license-outer .license small {
+  display: block;
+  font-size: 13px;
+}
+.license-outer .license > h2 {
+  margin: 4px;
+  line-height: 1;
+  text-align: center !important;
+}
+.license-outer .license .price {
+  background-color: #0a4f56;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: -26px;
+  margin-top: 20px;
+  padding: 7px 0;
+  -webkit-transition: background-color 0.15s ease 0s;
+  -o-transition: background-color 0.15s ease 0s;
+  transition: background-color 0.15s ease 0s;
+}
+.license-outer .license .plan {
+  font-size: 16px;
+  margin-top: 15px;
+}
+.select-plugin {
+  padding: 40px 0 20px;
+  text-align: center;
+}
+.select-plugin > select {
+  min-width: 200px;
+  padding: 5px;
+}
+.select-plugin .label {
+  margin-right: 20px;
 }

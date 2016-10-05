@@ -685,7 +685,7 @@ body.home.in {
 }
 
 .lg-ad {
-    border: 3px solid #152836;
+    border: 3px solid #0a4f56;
     border-radius: 3px;
     padding: 10px 10px 4px;
     text-align: center;
@@ -730,3 +730,68 @@ body.home.in {
     }
 
 }
+
+
+// License
+.license-outer {
+    @hovercolor: #e02c2c;
+    border: 2px solid #0a4f56;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    .transition(border-color 0.15s ease 0s);
+    &:hover {
+        border-color: @hovercolor;
+        .price {
+            background-color: @hovercolor !important;
+        }
+        .license {
+            color: @hovercolor;
+        }
+    }
+    .license {
+        padding: 20px 20px 0;
+        color: #333;
+        text-align: center;
+        .transition(color 0.15s ease 0s);
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+            outline: none;
+        }
+        small {
+            display: block;
+            font-size: 13px;
+        }
+        > h2 {
+            margin: 4px;
+            line-height: 1;
+            text-align: center !important;
+        }
+        .price {
+            background-color: #0a4f56;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: -26px;
+            margin-top: 20px;
+            padding: 7px 0;
+            .transition(background-color 0.15s ease 0s);
+        }
+        .plan {
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    }
+}
+.select-plugin {
+    padding: 40px 0 20px;
+    text-align: center;
+    > select {
+        min-width: 200px;
+        padding: 5px;
+    }
+    .label {
+        margin-right: 20px;
+    }
+}
+
