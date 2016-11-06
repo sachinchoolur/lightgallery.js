@@ -59,6 +59,10 @@ You can also find `lightgallery` on [npm](https://www.npmjs.com/).
 npm install lightgallery.js
 ```
 
+### CDN
+
+http://www.jsdelivr.com/projects/lightgallery.js
+
 ### Download from GitHub
 
 You can also directly download lightgallery from GitHub.
