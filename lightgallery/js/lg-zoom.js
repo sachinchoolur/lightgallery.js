@@ -1,4 +1,9 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.LgZoom = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/**!
+ * lg-zoom.js | 1.0.1 | December 22nd 2016
+ * http://sachinchoolur.github.io/lg-zoom.js
+ * Copyright (c) 2016 Sachin N; 
+ * @license GPLv3 
+ */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.LgZoom = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
         define([], factory);
@@ -28,11 +33,22 @@
         return target;
     };
 
+    var getUseLeft = function getUseLeft() {
+        var useLeft = false;
+        var isChrome = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+        if (isChrome && parseInt(isChrome[2], 10) < 54) {
+            useLeft = true;
+        }
+
+        return useLeft;
+    };
+
     var zoomDefaults = {
         scale: 1,
         zoom: true,
         actualSize: true,
-        enableZoomAfter: 300
+        enableZoomAfter: 300,
+        useLeftForZoom: getUseLeft()
     };
 
     var Zoom = function Zoom(element) {
@@ -63,6 +79,12 @@
 
         if (_this.core.s.actualSize) {
             zoomIcons += '<span id="lg-actual-size" class="lg-icon"></span>';
+        }
+
+        if (_this.core.s.useLeftForZoom) {
+            utils.addClass(_this.core.outer, 'lg-use-left-for-zoom');
+        } else {
+            utils.addClass(_this.core.outer, 'lg-use-transition-for-zoom');
         }
 
         this.core.outer.querySelector('.lg-toolbar').insertAdjacentHTML('beforeend', zoomIcons);
@@ -115,8 +137,13 @@
             utils.setVendor(image, 'Transform', 'scale3d(' + scaleVal + ', ' + scaleVal + ', 1)');
             image.setAttribute('data-scale', scaleVal);
 
-            image.parentElement.style.left = -x + 'px';
-            image.parentElement.style.top = -y + 'px';
+            if (_this.core.s.useLeftForZoom) {
+                image.parentElement.style.left = -x + 'px';
+                image.parentElement.style.top = -y + 'px';
+            } else {
+                utils.setVendor(image.parentElement, 'Transform', 'translate3d(-' + x + 'px, -' + y + 'px, 0)');
+            }
+
             image.parentElement.setAttribute('data-x', x);
             image.parentElement.setAttribute('data-y', y);
         };
@@ -335,8 +362,13 @@
                     }
 
                     if (Math.abs(endCoords.x - startCoords.x) > 15 || Math.abs(endCoords.y - startCoords.y) > 15) {
-                        _el.style.left = distanceX + 'px';
-                        _el.style.top = distanceY + 'px';
+
+                        if (_this.core.s.useLeftForZoom) {
+                            _el.style.left = distanceX + 'px';
+                            _el.style.top = distanceY + 'px';
+                        } else {
+                            utils.setVendor(_el, 'Transform', 'translate3d(' + distanceX + 'px, ' + distanceY + 'px, 0)');
+                        }
                     }
                 }
             });
@@ -430,8 +462,12 @@
                     distanceX = -Math.abs(_el.getAttribute('data-x'));
                 }
 
-                _el.style.left = distanceX + 'px';
-                _el.style.top = distanceY + 'px';
+                if (_this.core.s.useLeftForZoom) {
+                    _el.style.left = distanceX + 'px';
+                    _el.style.top = distanceY + 'px';
+                } else {
+                    utils.setVendor(_el, 'Transform', 'translate3d(' + distanceX + 'px, ' + distanceY + 'px, 0)');
+                }
             }
         });
 
@@ -499,8 +535,12 @@
                 distanceX = -Math.abs(_el.getAttribute('data-x'));
             }
 
-            _el.style.left = distanceX + 'px';
-            _el.style.top = distanceY + 'px';
+            if (_this.core.s.useLeftForZoom) {
+                _el.style.left = distanceX + 'px';
+                _el.style.top = distanceY + 'px';
+            } else {
+                utils.setVendor(_el, 'Transform', 'translate3d(' + distanceX + 'px, ' + distanceY + 'px, 0)');
+            }
         }
     };
 
