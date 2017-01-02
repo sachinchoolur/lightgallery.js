@@ -84,6 +84,7 @@ var defaults = {
 
     iframeMaxWidth: '100%',
 
+    toolbar: true,
     download: true,
     counter: true,
     appendCounterTo: '.lg-toolbar',
@@ -285,6 +286,7 @@ Plugin.prototype.structure = function() {
     var controls = '';
     var i = 0;
     var subHtmlCont = '';
+    var toolbar = '';
     var template;
     var _this = this;
 
@@ -308,12 +310,16 @@ Plugin.prototype.structure = function() {
         subHtmlCont = '<div class="lg-sub-html"></div>';
     }
 
+    if (this.s.toolbar) {
+        toolbar = '<div class="lg-toolbar group">' +
+            '<span class="lg-close lg-icon"></span>' +
+            '</div>';
+    }
+
     template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' +
         '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' +
         '<div class="lg-inner">' + list + '</div>' +
-        '<div class="lg-toolbar group">' +
-        '<span class="lg-close lg-icon"></span>' +
-        '</div>' +
+        toolbar +
         controls +
         subHtmlCont +
         '</div>' +
