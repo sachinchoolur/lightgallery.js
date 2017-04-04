@@ -300,7 +300,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .lg-outer .lg-thumb {
   padding: 10px 0;
   height: 100%;
-  margin-bottom: -5px;
+  margin: 0 auto;
 }
 .lg-outer .lg-thumb-item {
   border-radius: 5px;
