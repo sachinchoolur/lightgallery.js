@@ -1403,7 +1403,7 @@ Plugin.prototype.destroy = function(d) {
 
 window.lightGallery = function(el, options) {
     if (!el) {
-        return;
+        return false;
     }
 
     try {
@@ -1411,9 +1411,11 @@ window.lightGallery = function(el, options) {
             let uid = 'lg' + window.lgData.uid++;
             window.lgData[uid] = new Plugin(el, options);
             el.setAttribute('lg-uid', uid);
+            return window.lgData[uid];
         } else {
             try {
                 window.lgData[el.getAttribute('lg-uid')].init();
+                return window.lgData[el.getAttribute('lg-uid')];
             } catch (err) {
                 console.error('lightGallery has not initiated properly');
             }
@@ -1421,4 +1423,5 @@ window.lightGallery = function(el, options) {
     } catch (err) {
         console.error('lightGallery has not initiated properly');
     }
+    return false;
 };
