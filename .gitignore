@@ -1,3 +1,4 @@
+.idea/*
 lib
 npm-debug.log
 bower_components
