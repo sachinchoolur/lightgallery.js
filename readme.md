@@ -61,7 +61,7 @@ npm install lightgallery.js
 
 ### CDN
 
-http://www.jsdelivr.com/projects/lightgallery.js
+https://cdn.jsdelivr.net/npm/lightgallery.js@latest/dist/js/lightgallery.js
 
 ### Download from GitHub
 
