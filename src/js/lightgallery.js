@@ -430,10 +430,12 @@ Plugin.prototype.doCss = function() {
  */
 Plugin.prototype.isVideo = function(src, index) {
 
+    /* Disable this check to allow the proper initialization of dynamic HTML5 video slides
     if(!src) {
         throw new Error("Make sure that slide " + index + " has an image/video src");
     }
-
+    */
+    
     var html;
     if (this.s.dynamic) {
         html = this.s.dynamicEl[index].html;
