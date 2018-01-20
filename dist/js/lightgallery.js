@@ -623,11 +623,6 @@
      *  Ex:{ youtube  :  ["//www.youtube.com/watch?v=c0asJgSyxcY", "c0asJgSyxcY"] }
      */
     Plugin.prototype.isVideo = function (src, index) {
-
-        if (!src) {
-            throw new Error("Make sure that slide " + index + " has an image/video src");
-        }
-
         var html;
         if (this.s.dynamic) {
             html = this.s.dynamicEl[index].html;
