@@ -23,7 +23,7 @@ Full featured JavaScript lightbox gallery. No dependencies.
 * Animated thumbnails.
 * Social media sharing.
 * YouTube, Vimeo, Dailymotion, VK and HTML5 video support.
-* 20+ Hardware-Accelerated CSS3 transitions.
+* 20+ hardware-accelerated CSS3 transitions.
 * Dynamic mode.
 * Full screen support.
 * Supports zoom.
@@ -31,9 +31,9 @@ Full featured JavaScript lightbox gallery. No dependencies.
 * Responsive images.
 * HTML iframe support.
 * Multiple instances on one page.
-* Easily customizable via CSS (SCSS) and Settings.
+* Easily customizable via CSS (SCSS) and settings.
 * Smart image preloading and code optimization.
-* Keyboard Navigation for desktop.
+* Keyboard navigation for desktop.
 * Font icon support.
 * And many more.
 
@@ -51,9 +51,9 @@ You can install `lightgallery` using the [Bower](http://bower.io) package manage
 bower install lightgallery.js --save
 ```
 
-### npm
+### Install with NPM
 
-You can also find `lightgallery` on [npm](https://www.npmjs.com/).
+You can also find `lightgallery` on [NPM](https://www.npmjs.com/).
 
 ```sh
 npm install lightgallery.js
@@ -177,14 +177,14 @@ If you like lightgallery please support the project by staring the repository or
 
 ## Built in modules
 
-1. Thumbnail - [GItHub](https://github.com/sachinchoolur/lg-thumbnail.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-thumbnial)
-2. Autoplay - [GItHub](https://github.com/sachinchoolur/lg-autoplay.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-autoplay)
-3. Video - [GItHub](https://github.com/sachinchoolur/lg-video.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-video)
-4. Fullscreen - [GItHub](https://github.com/sachinchoolur/lg-fullscreen.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-fullscreen)
-5. Pager - [GItHub](https://github.com/sachinchoolur/lg-pager.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-pager)
-6. Zoom - [GItHub](https://github.com/sachinchoolur/lg-zoom.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-zoom)
-7. Hash - [GItHub](https://github.com/sachinchoolur/lg-hash.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
-8. Share - [GItHub](https://github.com/sachinchoolur/lg-share.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
+1. Thumbnail - [GitHub](https://github.com/sachinchoolur/lg-thumbnail.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-thumbnial)
+2. Autoplay - [GitHub](https://github.com/sachinchoolur/lg-autoplay.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-autoplay)
+3. Video - [GitHub](https://github.com/sachinchoolur/lg-video.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-video)
+4. Fullscreen - [GitHub](https://github.com/sachinchoolur/lg-fullscreen.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-fullscreen)
+5. Pager - [GitHub](https://github.com/sachinchoolur/lg-pager.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-pager)
+6. Zoom - [GitHub](https://github.com/sachinchoolur/lg-zoom.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-zoom)
+7. Hash - [GitHub](https://github.com/sachinchoolur/lg-hash.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
+8. Share - [GitHub](https://github.com/sachinchoolur/lg-share.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
 
 License
 ---
