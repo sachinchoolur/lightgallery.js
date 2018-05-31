@@ -278,6 +278,8 @@ Plugin.prototype.build = function(index) {
 
     });
 
+    utils.trigger(_this.outer, 'mousemove.lg');
+
 };
 
 Plugin.prototype.structure = function() {
@@ -311,7 +313,7 @@ Plugin.prototype.structure = function() {
     template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' +
         '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' +
         '<div class="lg-inner">' + list + '</div>' +
-        '<div class="lg-toolbar group">' +
+        '<div class="lg-toolbar lg-group">' +
         '<span class="lg-close lg-icon"></span>' +
         '</div>' +
         controls +
@@ -1329,10 +1331,9 @@ Plugin.prototype.destroy = function(d) {
 
     if (!d) {
         utils.trigger(_this.el, 'onBeforeClose');
+        document.body.scrollTop = _this.prevScrollTop;
+        document.documentElement.scrollTop = _this.prevScrollTop;
     }
-
-    document.body.scrollTop = _this.prevScrollTop;
-    document.documentElement.scrollTop = _this.prevScrollTop;
 
     /**
      * if d is false or undefined destroy will only close the gallery

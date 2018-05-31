@@ -12,17 +12,9 @@
 @import "lg-share";
 
 // Clearfix
-.group {
-    *zoom: 1;
-}
-
-.group:before, .group:after {
-    display: table;
+.lg-group:after {
     content: "";
-    line-height: 0;
-}
-
-.group:after {
+    display: table;
     clear: both;
 }
 
@@ -101,16 +93,16 @@
 
     .lg-item {
         background: url("#{$lg-path-images}/loading.gif") no-repeat scroll center center transparent;
-        display: none !important; 
+        display: none !important;
     }
     &.lg-css3{
         .lg-prev-slide, .lg-current, .lg-next-slide{
-            display: inline-block !important; 
+            display: inline-block !important;
         }
     }
     &.lg-css{
         .lg-current{
-            display: inline-block !important; 
+            display: inline-block !important;
         }
     }
 

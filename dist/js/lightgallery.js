@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 1.0.3 | May 17th 2018
+ * lightgallery.js | 1.0.3 | May 31st 2018
  * http://sachinchoolur.github.io/lightgallery.js/
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -486,6 +486,8 @@
                 _lgUtils2.default.addClass(_this.outer, 'lg-hide-items');
             }, _this.s.hideBarsDelay);
         });
+
+        _lgUtils2.default.trigger(_this.outer, 'mousemove.lg');
     };
 
     Plugin.prototype.structure = function () {
@@ -513,7 +515,7 @@
             subHtmlCont = '<div class="lg-sub-html"></div>';
         }
 
-        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + '<div class="lg-toolbar group">' + '<span class="lg-close lg-icon"></span>' + '</div>' + controls + subHtmlCont + '</div>' + '</div>';
+        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + '<div class="lg-toolbar lg-group">' + '<span class="lg-close lg-icon"></span>' + '</div>' + controls + subHtmlCont + '</div>' + '</div>';
 
         document.body.insertAdjacentHTML('beforeend', template);
         this.outer = document.querySelector('.lg-outer');
@@ -1506,10 +1508,9 @@
 
         if (!d) {
             _lgUtils2.default.trigger(_this.el, 'onBeforeClose');
+            document.body.scrollTop = _this.prevScrollTop;
+            document.documentElement.scrollTop = _this.prevScrollTop;
         }
-
-        document.body.scrollTop = _this.prevScrollTop;
-        document.documentElement.scrollTop = _this.prevScrollTop;
 
         /**
          * if d is false or undefined destroy will only close the gallery
