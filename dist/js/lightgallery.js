@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 1.0.3 | May 17th 2018
+ * lightgallery.js | 1.0.3 | August 8th 2018
  * http://sachinchoolur.github.io/lightgallery.js/
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -1539,7 +1539,7 @@
         // Distroy all lightGallery modules
         for (var key in window.lgModules) {
             if (_this.modules[key]) {
-                _this.modules[key].destroy();
+                _this.modules[key].destroy(d);
             }
         }
 

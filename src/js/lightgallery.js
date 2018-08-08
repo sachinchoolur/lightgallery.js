@@ -1362,7 +1362,7 @@ Plugin.prototype.destroy = function(d) {
     // Distroy all lightGallery modules
     for (var key in window.lgModules) {
         if (_this.modules[key]) {
-            _this.modules[key].destroy();
+            _this.modules[key].destroy(d);
         }
     }
 
