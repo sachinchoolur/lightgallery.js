@@ -675,7 +675,7 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
             _this.___slide[index].insertAdjacentHTML('beforeend', '<div class="lg-img-wrap"><img class="lg-object lg-image" src="' + _src + '" /></div>');
         }
 
-        utils.trigger(_this.el, 'onAferAppendSlide', {
+        utils.trigger(_this.el, 'onAfterAppendSlide', {
             index: index
         });
 
