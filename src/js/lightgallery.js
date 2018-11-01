@@ -1327,7 +1327,9 @@ Plugin.prototype.destroy = function(d) {
 
     var _this = this;
 
-    if (!d) {
+    if (d) {
+        utils.trigger(_this.el, 'onBeforeDestroy');
+    } else {
         utils.trigger(_this.el, 'onBeforeClose');
     }
 
@@ -1389,7 +1391,9 @@ Plugin.prototype.destroy = function(d) {
                 document.querySelector('.lg-backdrop').parentNode.removeChild(document.querySelector('.lg-backdrop'));
             }
 
-            if (!d) {
+            if (d) {
+                utils.trigger(_this.el, 'onAfterDestroy');
+            } else {
                 utils.trigger(_this.el, 'onCloseAfter');
             }
         } catch (err) {}
