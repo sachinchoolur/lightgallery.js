@@ -909,7 +909,7 @@ lightGallery(document.getElementById('lightgallery'), {
 var lg = document.getElementById('lightgallery');
 
 // Perform any action just before opening the gallery
-lg.addEventListener('lgOnBeforeOpen', function(e){
+lg.addEventListener('onBeforeOpen', function(e){
   alert('onBeforeOpen');
 }, false);
 
@@ -917,7 +917,7 @@ lg.addEventListener('lgOnBeforeOpen', function(e){
 // event.detail.index - index of the slide
 // event.detail.fromTouch - true if slide function called via touch event or mouse drag
 // event.detail.fromThumb - true if slide function called via thumbnail click
-lg.addEventListener('lgOnBeforeSlide', function(event){
+lg.addEventListener('onBeforeSlide', function(event){
   console.log(event.detail.index, event.detail.fromTouch, event.detail.fromThumb);
 }, false);
 
