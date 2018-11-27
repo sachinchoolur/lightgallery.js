@@ -1057,8 +1057,8 @@ Plugin.prototype.arrowDisable = function(index) {
             prev.removeAttribute('disabled');
             utils.removeClass(prev, 'disabled');
         } else {
-            next.setAttribute('disabled', 'disabled');
-            utils.addClass(next, 'disabled');
+            prev.setAttribute('disabled', 'disabled');
+            utils.addClass(prev, 'disabled');
         }
     }
 };
