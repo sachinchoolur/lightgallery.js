@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>jQuery lightGallery demo</title>
-        <link href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css" rel="stylesheet">
+        <link href="../dist/css/lightgallery.css" rel="stylesheet">
         <style>
             body{
                 background-color: #152836
@@ -127,6 +127,7 @@
     <body class="home">
 
         <div class="demo-gallery">
+            <div id="aqui" />
             <ul id="lightgallery" class="list-unstyled row">
                 <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="img/1-375.jpg 375, img/1-480.jpg 480, img/1.jpg 800" data-src="img/1-1600.jpg" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it1" data-tweet-text="share on twitter 1">
                     <a href="">
@@ -151,7 +152,8 @@
             </ul>
         </div>
         <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
-        <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
+        <script src="../dist/js/lightgallery.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-thumbnail.js/master/dist/lg-thumbnail.js"></script>
         <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
         <script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
         <script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
@@ -159,7 +161,49 @@
         <script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
         <script src="https://cdn.rawgit.com/sachinchoolur/lg-share.js/master/dist/lg-share.js"></script>
         <script>
-            lightGallery(document.getElementById('lightgallery'));
+            var options = {
+              thumbnail: true,
+              download: false,
+              dynamic: true,
+              dynamicEl: [{
+                responsive: 'img/1-375.jpg 375, img/1-480.jpg 480, img/1.jpg 800',
+                src: 'img/1.jpg',
+                thumb: 'img/1.jpg'
+              }, {
+                responsive: 'img/2-375.jpg 375, img/2-480.jpg 480, img/2.jpg 800',
+                src: 'img/2.jpg',
+                thumb: 'img/2.jpg'
+              }, {
+                responsive: 'img/13-375.jpg 375, img/13-480.jpg 480, img/13.jpg 800',
+                src: 'img/13.jpg',
+                thumb: 'img/13.jpg'
+              }, {
+                responsive: 'img/4-375.jpg 375, img/4-480.jpg 480, img/4.jpg 800',
+                src: 'img/4.jpg',
+                thumb: 'img/4.jpg'
+              }]
+            }
+            var div = document.getElementById('aqui')
+            // div.addEventListener('onAfterOpen', function(e){
+            //   window.lgData[this.getAttribute('lg-uid')].slide(2);
+            // }, false);
+
+            Array.from(document.querySelectorAll('[data-responsive]')).forEach(function (li, index) {
+              li.addEventListener('click', function (evt) {
+                evt.preventDefault()
+                const goTo = function() {
+                  window.lgData[this.getAttribute('lg-uid')].slide(index);
+                  div.removeEventListener('onAfterOpen', goTo);
+                }
+                lightGallery(document.getElementById('aqui'), {
+                  ...options,
+                  index
+                });
+
+                div.addEventListener('onAfterOpen', goTo);
+              })
+            })
+
         </script>
     </body>
 </html>
