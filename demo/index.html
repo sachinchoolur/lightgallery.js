@@ -184,9 +184,7 @@
               }]
             }
             var div = document.getElementById('aqui')
-            // div.addEventListener('onAfterOpen', function(e){
-            //   window.lgData[this.getAttribute('lg-uid')].slide(2);
-            // }, false);
+            var images = []
 
             Array.from(document.querySelectorAll('[data-responsive]')).forEach(function (li, index) {
               li.addEventListener('click', function (evt) {
@@ -202,6 +200,35 @@
 
                 div.addEventListener('onAfterOpen', goTo);
               })
+            })
+
+            request = new Promise(function(resolve, reject) {
+              setTimeout(function() {
+                resolve(
+                  images = [{
+                    artworkId: '765674',
+                    userId: '5475',
+                    src: 'https://d4pu5nmyrhgle.cloudfront.net/74824/2926436x150+v=201811200218.jpg'
+                  }, {
+                    artworkId: '765374',
+                    userId: '5475',
+                    src: 'https://d4pu5nmyrhgle.cloudfront.net/74824/2926436x150+v=201811200218.jpg'
+                  }, {
+                    artworkId: '765604',
+                    userId: '5475',
+                    src: 'https://d4pu5nmyrhgle.cloudfront.net/74824/2926436x150+v=201811200218.jpg'
+                  }, {
+                    artworkId: '765174',
+                    userId: '5475',
+                    src: 'https://d4pu5nmyrhgle.cloudfront.net/74824/2926436x150+v=201811200218.jpg'
+                  }]
+                )
+              }, 100)
+            })
+
+            request.then(function(images) {
+              debugger
+              images = images
             })
 
         </script>
