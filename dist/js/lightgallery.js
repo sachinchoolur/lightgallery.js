@@ -380,6 +380,7 @@
 
         // if dynamic option is enabled execute immediately
         var _hash = window.location.hash;
+
         if (_hash.indexOf('lg=' + this.s.galleryId) > 0) {
 
             _this.index = parseInt(_hash.split('&slide=')[1], 10);
@@ -397,10 +398,9 @@
 
             _lgUtils2.default.trigger(this.el, 'onBeforeOpen');
 
-            _this.index = _this.s.index || 0;
-
             // prevent accidental double execution
             if (!_lgUtils2.default.hasClass(document.body, 'lg-on')) {
+                _this.index = _this.s.index || 0;
                 _lgUtils2.default.addClass(document.body, 'lg-on');
                 setTimeout(function () {
                     _this.build(_this.index);
@@ -942,7 +942,7 @@
         ** ** avoid simultaneous image load
     <=> ** Preload() will check for s.preload value and call loadContent() again accoring to preload value
         ** loadContent()  <====> Preload();
-
+    
     *   @param {Number} index - index of the slide
     *   @param {Boolean} fromTouch - true if slide function called via touch event or mouse drag
     *   @param {Boolean} fromThumb - true if slide function called via thumbnail click
@@ -1238,8 +1238,8 @@
                 prev.removeAttribute('disabled');
                 _lgUtils2.default.removeClass(prev, 'disabled');
             } else {
-                next.setAttribute('disabled', 'disabled');
-                _lgUtils2.default.addClass(next, 'disabled');
+                prev.setAttribute('disabled', 'disabled');
+                _lgUtils2.default.addClass(prev, 'disabled');
             }
         }
     };

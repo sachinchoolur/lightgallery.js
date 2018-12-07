@@ -171,6 +171,7 @@ Plugin.prototype.init = function() {
 
     // if dynamic option is enabled execute immediately
     var _hash = window.location.hash;
+
     if (_hash.indexOf('lg=' + this.s.galleryId) > 0) {
 
         _this.index = parseInt(_hash.split('&slide=')[1], 10);
@@ -188,10 +189,9 @@ Plugin.prototype.init = function() {
 
         utils.trigger(this.el, 'onBeforeOpen');
 
-        _this.index = _this.s.index || 0;
-
         // prevent accidental double execution
         if (!utils.hasClass(document.body, 'lg-on')) {
+            _this.index = _this.s.index || 0;
             utils.addClass(document.body, 'lg-on');
             setTimeout(function() {
                 _this.build(_this.index);
