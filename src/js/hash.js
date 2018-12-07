@@ -19,7 +19,8 @@ Hash.prototype.init = function() {
 
     // Change hash value on after each slide transition
     utils.on(_this.core.el, 'onAfterSlide.lgtm', function(event) {
-        window.location.hash = 'lg=' + _this.core.s.galleryId + '&slide=' + event.detail.index;
+        var idx = event.detail.index
+        window.location.hash = 'lg=' + _this.core.s.galleryId + '&artworkId=' + _this.core.s.dynamicEl[idx].artworkId + '&slide=' + event.detail.index;
     });
 
     // Listen hash change and change the slide according to slide value
