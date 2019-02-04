@@ -227,6 +227,32 @@ Plugin.prototype.init = function() {
 
 };
 
+Plugin.prototype.openSlide = function(index = 0, goToIfOpen = false, respectSettingsIndex = false) {
+
+    var _this = this;
+    var hasClassLgOn = utils.hasClass(document.body, 'lg-on');
+
+    if (!hasClassLgOn) {
+        utils.trigger(_this.el, 'onBeforeOpen');
+    }
+
+    if (respectSettingsIndex) {
+        _this.index = _this.s.index || index;
+    } else {
+        _this.index = index;
+    }
+
+    if (!hasClassLgOn) {
+        _this.build(_this.index);
+        utils.addClass(document.body, 'lg-on');
+    } else {
+        if (goToIfOpen) {
+            _this.slide(_this.index, false, false);
+        }
+    }
+
+};
+
 Plugin.prototype.build = function(index) {
 
     var _this = this;
