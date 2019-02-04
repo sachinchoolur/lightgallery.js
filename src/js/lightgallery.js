@@ -209,14 +209,8 @@ Plugin.prototype.init = function() {
 
                     e.preventDefault();
 
-                    utils.trigger(_this.el, 'onBeforeOpen');
+                    _this.openSlide(index, false, true);
 
-                    _this.index = _this.s.index || index;
-
-                    if (!utils.hasClass(document.body, 'lg-on')) {
-                        _this.build(_this.index);
-                        utils.addClass(document.body, 'lg-on');
-                    }
                 });
 
             })(i);
