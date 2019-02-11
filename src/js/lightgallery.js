@@ -430,10 +430,6 @@ Plugin.prototype.doCss = function() {
  */
 Plugin.prototype.isVideo = function(src, index) {
 
-    if(!src) {
-        throw new Error("Make sure that slide " + index + " has an image/video src");
-    }
-
     var html;
     if (this.s.dynamic) {
         html = this.s.dynamicEl[index].html;
@@ -447,7 +443,7 @@ Plugin.prototype.isVideo = function(src, index) {
         };
     }
 
-    var youtube = src.match(/\/\/(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=|embed\/)?([a-z0-9\-\_\%]+)/i);
+    var youtube = src.match(/\/\/(?:www\.)?youtu(?:\.be|be\.com|be-nocookie\.com)\/(?:watch\?v=|embed\/)?([a-z0-9\-\_\%]+)/i);
     var vimeo = src.match(/\/\/(?:www\.)?vimeo.com\/([0-9a-z\-_]+)/i);
     var dailymotion = src.match(/\/\/(?:www\.)?dai.ly\/([0-9a-z\-_]+)/i);
     var vk = src.match(/\/\/(?:www\.)?(?:vk\.com|vkontakte\.ru)\/(?:video_ext\.php\?)(.*)/i);
@@ -1061,8 +1057,8 @@ Plugin.prototype.arrowDisable = function(index) {
             prev.removeAttribute('disabled');
             utils.removeClass(prev, 'disabled');
         } else {
-            next.setAttribute('disabled', 'disabled');
-            utils.addClass(next, 'disabled');
+            prev.setAttribute('disabled', 'disabled');
+            utils.addClass(prev, 'disabled');
         }
     }
 };
@@ -1366,7 +1362,7 @@ Plugin.prototype.destroy = function(d) {
     // Distroy all lightGallery modules
     for (var key in window.lgModules) {
         if (_this.modules[key]) {
-            _this.modules[key].destroy();
+            _this.modules[key].destroy(d);
         }
     }
 
