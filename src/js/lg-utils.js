@@ -1,24 +1,12 @@
 
-/*
- *@todo remove function from window and document. Update on and off functions
- */
-window.getAttribute = function(label) {
-    return window[label];
-};
-
-window.setAttribute = function(label, value) {
-    window[label] = value;
-};
-
-document.getAttribute = function(label) {
-    return document[label];
-};
-
-document.setAttribute = function(label, value) {
-    document[label] = value;
-};
-
 var utils = {
+    getAttribute: function(el, label) {
+        return el[label];
+    },
+
+    setAttribute: function(el, label, value) {
+        el[label] = value;
+    },
     wrap: function(el, className) {
         if (!el) {
             return;
@@ -61,8 +49,6 @@ var utils = {
         } else {
             return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
         }
-
-        return false;
     },
 
     // ex Transform
@@ -99,10 +85,10 @@ var utils = {
         }
 
         events.split(' ').forEach(event => {
-            var _id = el.getAttribute('lg-event-uid') || '';
+            var _id = this.getAttribute(el, 'lg-event-uid') || '';
             utils.Listener.uid++;
             _id += '&' + utils.Listener.uid;
-            el.setAttribute('lg-event-uid', _id);
+            this.setAttribute(el, 'lg-event-uid', _id);
             utils.Listener[event + utils.Listener.uid] = fn;
             el.addEventListener(event.split('.')[0], fn, false);
         });
@@ -113,7 +99,7 @@ var utils = {
             return;
         }
 
-        var _id = el.getAttribute('lg-event-uid');
+        var _id = this.getAttribute(el, 'lg-event-uid');
         if (_id) {
             _id = _id.split('&');
             for (var i = 0; i < _id.length; i++) {
@@ -124,14 +110,14 @@ var utils = {
                             if (utils.Listener.hasOwnProperty(key)) {
                                 if (key.split('.').indexOf(_event.split('.')[1]) > -1) {
                                     el.removeEventListener(key.split('.')[0], utils.Listener[key]);
-                                    el.setAttribute('lg-event-uid', el.getAttribute('lg-event-uid').replace('&' + _id[i], ''));
+                                    this.setAttribute(el, 'lg-event-uid', this.getAttribute(el, 'lg-event-uid').replace('&' + _id[i], ''));
                                     delete utils.Listener[key];
                                 }
                             }
                         }
                     } else {
                         el.removeEventListener(_event.split('.')[0], utils.Listener[_event]);
-                        el.setAttribute('lg-event-uid', el.getAttribute('lg-event-uid').replace('&' + _id[i], ''));
+                        this.setAttribute(el, 'lg-event-uid', this.getAttribute(el, 'lg-event-uid').replace('&' + _id[i], ''));
                         delete utils.Listener[_event];
                     }
                 }
