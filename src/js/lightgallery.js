@@ -1402,19 +1402,11 @@ window.lightGallery = function(el, options) {
         return;
     }
 
-    try {
-        if (!el.getAttribute('lg-uid')) {
-            let uid = 'lg' + window.lgData.uid++;
-            window.lgData[uid] = new Plugin(el, options);
-            el.setAttribute('lg-uid', uid);
-        } else {
-            try {
-                window.lgData[el.getAttribute('lg-uid')].init();
-            } catch (err) {
-                console.error('lightGallery has not initiated properly');
-            }
-        }
-    } catch (err) {
-        console.error('lightGallery has not initiated properly');
+    if (!el.getAttribute('lg-uid')) {
+        let uid = 'lg' + window.lgData.uid++;
+        window.lgData[uid] = new Plugin(el, options);
+        el.setAttribute('lg-uid', uid);
+    } else {
+        window.lgData[el.getAttribute('lg-uid')].init();
     }
 };
