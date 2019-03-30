@@ -28,6 +28,8 @@
     "url": "https://github.com/sachinchoolur"
   },
   "main": "lib/js/lightgallery.js",
+  "unpkg": "dist/js/lightgallery.js",
+  "jsdelivr": "dist/js/lightgallery.js",
   "style": "dist/css/lightgallery.css",
   "repository": {
     "type": "git",
