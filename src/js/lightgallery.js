@@ -495,7 +495,7 @@ Plugin.prototype.addHtml = function(index) {
         if (this.s.subHtmlSelector) {
             let node = this.s.subHtmlSelectorFromParent ? currentEle.parentNode : currentEle;
             node = node.querySelector(this.s.subHtmlSelector);
-            subHtml = node.innerHtml || '';
+            subHtml = node ? node.innerHTML : '';
         } else if (this.s.getCaptionFromTitleOrAlt && !subHtml) {
             subHtml = currentEle.getAttribute('title');
             if (subHtml && currentEle.querySelector('img')) {
