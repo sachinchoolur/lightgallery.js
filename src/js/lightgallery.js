@@ -62,6 +62,8 @@ var defaults = {
     appendSubHtmlTo: '.lg-sub-html',
 
     subHtmlSelectorRelative: false,
+    subHtmlSelector: null,
+    subHtmlSelectorFromParent: false,
 
     /**
      * @desc number of preload slides
@@ -99,7 +101,7 @@ var defaults = {
 
 function Plugin(element, options) {
 
-    // Current lightGallery element
+    // Current lightGallery elementl
     this.el = element;
 
     // lightGallery settings
@@ -383,7 +385,7 @@ Plugin.prototype.structure = function() {
     }
 
     // Store the current scroll top value to scroll back after closing the gallery..
-    this.prevScrollTop = (document.documentElement.scrollTop || document.body.scrollTop)
+    this.prevScrollTop = (document.documentElement.scrollTop || document.body.scrollTop);
 
 };
 
@@ -489,7 +491,11 @@ Plugin.prototype.addHtml = function(index) {
     } else {
         currentEle = this.items[index];
         subHtml = currentEle.getAttribute('data-sub-html');
-        if (this.s.getCaptionFromTitleOrAlt && !subHtml) {
+
+        if (this.s.subHtmlSelector) {
+            let node = this.s.subHtmlSelectorFromParent ? currentEle.parentNode : currentEle;
+            subHtml = node.querySelector(this.s.subHtmlSelector).innerHTML;
+        } else if (this.s.getCaptionFromTitleOrAlt && !subHtml) {
             subHtml = currentEle.getAttribute('title');
             if (subHtml && currentEle.querySelector('img')) {
                 subHtml = currentEle.querySelector('img').getAttribute('alt');
