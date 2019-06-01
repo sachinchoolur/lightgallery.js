@@ -836,19 +836,25 @@ Plugin.prototype.slide = function(index, fromTouch, fromThumb) {
                 utils.removeClass(this.___slide[j], 'lg-next-slide');
             }
 
-            if (index < _prevIndex) {
-                _prev = true;
-                if ((index === 0) && (_prevIndex === _length - 1) && !fromThumb) {
-                    _prev = false;
-                    _next = true;
-                }
-            } else if (index > _prevIndex) {
-                _next = true;
-                if ((index === _length - 1) && (_prevIndex === 0) && !fromThumb) {
+            if (_length > 2) {
+                if (index < _prevIndex) {
                     _prev = true;
-                    _next = false;
+                    if ((index === 0) && (_prevIndex === _length - 1) && !fromThumb) {
+                        _prev = false;
+                        _next = true;
+                    }
+                } else if (index > _prevIndex) {
+                    _next = true;
+                    if ((index === _length - 1) && (_prevIndex === 0) && !fromThumb) {
+                        _prev = true;
+                        _next = false;
+                    }
                 }
+            } else {
+                _prev = false;
+                _next = true;
             }
+
 
             if (_prev) {
 
