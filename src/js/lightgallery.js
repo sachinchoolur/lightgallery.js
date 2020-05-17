@@ -47,6 +47,12 @@ var defaults = {
 
     useLeft: false,
 
+    // aria-labelledby attribute fot gallery
+    ariaLabelledby: '',
+
+    //aria-describedby attribute for gallery
+    ariaDescribedby: '',
+
     closable: true,
     loop: true,
     escKey: true,
@@ -299,20 +305,25 @@ Plugin.prototype.structure = function() {
     // Create controlls
     if (this.s.controls && this.items.length > 1) {
         controls = '<div class="lg-actions">' +
-            '<div class="lg-prev lg-icon">' + this.s.prevHtml + '</div>' +
-            '<div class="lg-next lg-icon">' + this.s.nextHtml + '</div>' +
+            '<button aria-label="Previous slide" class="lg-prev lg-icon">' + this.s.prevHtml + '</button>' +
+            '<button aria-label="Next slide" class="lg-next lg-icon">' + this.s.nextHtml + '</button>' +
             '</div>';
     }
 
     if (this.s.appendSubHtmlTo === '.lg-sub-html') {
-        subHtmlCont = '<div class="lg-sub-html"></div>';
+        subHtmlCont = '<div role="status" aria-live="polite" class="lg-sub-html"></div>';
     }
 
-    template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' +
+    var ariaLabelledby = this.s.ariaLabelledby ?
+        'aria-labelledby="' + this.s.ariaLabelledby + '"' : '';
+    var ariaDescribedby = this.s.ariaDescribedby ?
+        'aria-describedby="' + this.s.ariaDescribedby + '"' : '';
+
+    template = '<div tabindex="-1" aria-modal="true" ' + ariaLabelledby + ' ' + ariaDescribedby + ' role="dialog" class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' +
         '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' +
         '<div class="lg-inner">' + list + '</div>' +
         '<div class="lg-toolbar group">' +
-        '<span class="lg-close lg-icon"></span>' +
+        '<button aria-label="Close gallery" class="lg-close lg-icon"></button>' +
         '</div>' +
         controls +
         subHtmlCont +
@@ -321,6 +332,7 @@ Plugin.prototype.structure = function() {
 
     document.body.insertAdjacentHTML('beforeend', template);
     this.outer = document.querySelector('.lg-outer');
+    this.outer.focus();
     this.___slide = this.outer.querySelectorAll('.lg-item');
 
     if (this.s.useLeft) {
@@ -379,7 +391,7 @@ Plugin.prototype.structure = function() {
     }, this.s.backdropDuration);
 
     if (this.s.download) {
-        this.outer.querySelector('.lg-toolbar').insertAdjacentHTML('beforeend', '<a id="lg-download" target="_blank" download class="lg-download lg-icon"></a>');
+        this.outer.querySelector('.lg-toolbar').insertAdjacentHTML('beforeend', '<a id="lg-download" aria-label="Download" target="_blank" download class="lg-download lg-icon"></a>');
     }
 
     // Store the current scroll top value to scroll back after closing the gallery..
@@ -473,7 +485,7 @@ Plugin.prototype.isVideo = function(src, index) {
  */
 Plugin.prototype.counter = function() {
     if (this.s.counter) {
-        this.outer.querySelector(this.s.appendCounterTo).insertAdjacentHTML('beforeend', '<div id="lg-counter"><span id="lg-counter-current">' + (parseInt(this.index, 10) + 1) + '</span> / <span id="lg-counter-all">' + this.items.length + '</span></div>');
+        this.outer.querySelector(this.s.appendCounterTo).insertAdjacentHTML('beforeend', '<div id="lg-counter" role="status" aria-live="polite"><span id="lg-counter-current">' + (parseInt(this.index, 10) + 1) + '</span> / <span id="lg-counter-all">' + this.items.length + '</span></div>');
     }
 };
 
@@ -573,6 +585,7 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
     var _srcset;
     var _sizes;
     var _html;
+    var _alt;
     var getResponsiveSrc = function(srcItms) {
         var rsWidth = [];
         var rsSrc = [];
@@ -606,6 +619,7 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
 
         _html = _this.s.dynamicEl[index].html;
         _src = _this.s.dynamicEl[index].src;
+        _alt = _this.s.dynamicEl[index].alt;
 
         if (_this.s.dynamicEl[index].responsive) {
             var srcDyItms = _this.s.dynamicEl[index].responsive.split(',');
@@ -624,6 +638,11 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
 
         _html = _this.items[index].getAttribute('data-html');
         _src = _this.items[index].getAttribute('href') || _this.items[index].getAttribute('data-src');
+        _alt = _this.items[index].getAttribute('title');
+
+        if (_this.items[index].querySelector('img')) {
+            _alt = _alt || _this.items[index].querySelector('img').getAttribute('alt');
+        }
 
         if (_this.items[index].getAttribute('data-responsive')) {
             var srcItms = _this.items[index].getAttribute('data-responsive').split(',');
@@ -672,7 +691,8 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
                 html: _html
             });
         } else {
-            _this.___slide[index].insertAdjacentHTML('beforeend', '<div class="lg-img-wrap"><img class="lg-object lg-image" src="' + _src + '" /></div>');
+            _alt = _alt ? 'alt="' + _alt + '"' : '';
+            _this.___slide[index].insertAdjacentHTML('beforeend', '<div class="lg-img-wrap"><img class="lg-object lg-image" ' + _alt + ' src="' + _src + '" /></div>');
         }
 
         utils.trigger(_this.el, 'onAferAppendSlide', {
@@ -1392,6 +1412,7 @@ Plugin.prototype.destroy = function(d) {
             if (!d) {
                 utils.trigger(_this.el, 'onCloseAfter');
             }
+            _this.el.focus();
         } catch (err) {}
 
     }, _this.s.backdropDuration + 50);
