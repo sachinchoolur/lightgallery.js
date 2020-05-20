@@ -1,5 +1,5 @@
 /**!
- * lg-fullscreen.js | 1.1.0 | February 23rd 2019
+ * lg-fullscreen.js | 1.2.0 | May 20th 2020
  * http://sachinchoolur.github.io/lg-fullscreen.js
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -61,7 +61,7 @@
             if (!document.fullscreenEnabled && !document.webkitFullscreenEnabled && !document.mozFullScreenEnabled && !document.msFullscreenEnabled) {
                 return;
             } else {
-                fullScreen = '<span class="lg-fullscreen lg-icon"></span>';
+                fullScreen = '<button aria-label="Toggle fullscreen" class="lg-fullscreen lg-icon"></button>';
                 this.core.outer.querySelector('.lg-toolbar').insertAdjacentHTML('beforeend', fullScreen);
                 this.fullScreen();
             }

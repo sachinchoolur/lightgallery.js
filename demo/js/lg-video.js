@@ -1,9 +1,9 @@
 /**!
- * lg-video.js | 1.0.0 | October 5th 2016
+ * lg-video.js | 1.2.0 | May 20th 2020
  * http://sachinchoolur.github.io/lg-video.js
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
- */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.LgVideo = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+ */(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.LgVideo = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
         define([], factory);
@@ -264,6 +264,22 @@
             }
         }
 
+        var videoTitle;
+
+        if (this.core.s.dynamic) {
+            videoTitle = this.core.s.dynamicEl[index].title;
+        } else {
+            videoTitle = this.core.items[index].getAttribute('title');
+        }
+
+        var firstImage = this.core.items[index].querySelector('img');
+
+        if (firstImage) {
+            videoTitle = videoTitle || firstImage.getAttribute('alt');
+        }
+
+        videoTitle = videoTitle ? 'title="' + videoTitle + '"' : '';
+
         if (isVideo.youtube) {
 
             a = '?wmode=opaque&autoplay=' + autoplay + '&enablejsapi=1';
@@ -271,7 +287,7 @@
                 a = a + '&' + utils.param(this.core.s.youtubePlayerParams);
             }
 
-            video = '<iframe class="lg-video-object lg-youtube ' + addClass + '" width="560" height="315" src="//www.youtube.com/embed/' + isVideo.youtube[1] + a + '" frameborder="0" allowfullscreen></iframe>';
+            video = '<iframe class="lg-video-object lg-youtube ' + addClass + '" ' + videoTitle + ' width="560" height="315" src="//www.youtube.com/embed/' + isVideo.youtube[1] + a + '" frameborder="0" allowfullscreen></iframe>';
         } else if (isVideo.vimeo) {
 
             a = '?autoplay=' + autoplay + '&api=1';
@@ -279,7 +295,7 @@
                 a = a + '&' + utils.param(this.core.s.vimeoPlayerParams);
             }
 
-            video = '<iframe class="lg-video-object lg-vimeo ' + addClass + '" width="560" height="315"  src="//player.vimeo.com/video/' + isVideo.vimeo[1] + a + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+            video = '<iframe class="lg-video-object lg-vimeo ' + addClass + '" ' + videoTitle + ' width="560" height="315"  src="//player.vimeo.com/video/' + isVideo.vimeo[1] + a + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
         } else if (isVideo.dailymotion) {
 
             a = '?wmode=opaque&autoplay=' + autoplay + '&api=postMessage';
@@ -287,7 +303,7 @@
                 a = a + '&' + utils.param(this.core.s.dailymotionPlayerParams);
             }
 
-            video = '<iframe class="lg-video-object lg-dailymotion ' + addClass + '" width="560" height="315" src="//www.dailymotion.com/embed/video/' + isVideo.dailymotion[1] + a + '" frameborder="0" allowfullscreen></iframe>';
+            video = '<iframe class="lg-video-object lg-dailymotion ' + addClass + '" ' + videoTitle + ' width="560" height="315" src="//www.dailymotion.com/embed/video/' + isVideo.dailymotion[1] + a + '" frameborder="0" allowfullscreen></iframe>';
         } else if (isVideo.html5) {
             var fL = html.substring(0, 1);
             if (fL === '.' || fL === '#') {
@@ -302,7 +318,7 @@
                 a = a + '&' + utils.param(this.core.s.vkPlayerParams);
             }
 
-            video = '<iframe class="lg-video-object lg-vk ' + addClass + '" width="560" height="315" src="http://vk.com/video_ext.php?' + isVideo.vk[1] + a + '" frameborder="0" allowfullscreen></iframe>';
+            video = '<iframe class="lg-video-object lg-vk ' + addClass + '" ' + videoTitle + '  width="560" height="315" src="http://vk.com/video_ext.php?' + isVideo.vk[1] + a + '" frameborder="0" allowfullscreen></iframe>';
         }
 
         return video;
