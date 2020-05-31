@@ -65,13 +65,13 @@ var utils = {
         el.style['o' + property] = value;
     },
 
-    trigger: function(el, event, detail = null) {
+    trigger: function(el, event, detail) {
         if (!el) {
             return;
         }
 
         let customEvent = new CustomEvent(event, {
-            detail: detail
+            detail: detail || null
         });
         el.dispatchEvent(customEvent);
     },
