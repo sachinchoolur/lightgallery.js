@@ -35,6 +35,7 @@ Full featured JavaScript lightbox gallery. No dependencies.
 * Smart image preloading and code optimization.
 * Keyboard Navigation for desktop.
 * Font icon support.
+* Rotate, flip images.
 * And many more.
 
 ## Browser support
@@ -185,6 +186,7 @@ If you like lightgallery please support the project by staring the repository or
 6. Zoom - [GItHub](https://github.com/sachinchoolur/lg-zoom.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-zoom)
 7. Hash - [GItHub](https://github.com/sachinchoolur/lg-hash.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-hash)
 8. Share - [GItHub](https://github.com/sachinchoolur/lg-share.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-share)
+8. Rotate - [GItHub](https://github.com/sachinchoolur/lg-rotate.js) - [Docs](https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-rotate)
 
 License
 ---
