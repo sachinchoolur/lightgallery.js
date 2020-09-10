@@ -58,7 +58,7 @@ var defaults = {
     escKey: true,
     keyPress: true,
     controls: true,
-    slideEndAnimatoin: true,
+    slideEndAnimation: true,
     hideControlOnEnd: false,
     mousewheel: false,
 
@@ -131,7 +131,7 @@ function Plugin(element, options) {
     this.isTouch = ('ontouchstart' in document.documentElement);
 
     // Disable hideControlOnEnd if sildeEndAnimation is true
-    if (this.s.slideEndAnimatoin) {
+    if (this.s.slideEndAnimation) {
         this.s.hideControlOnEnd = false;
     }
 
@@ -976,7 +976,7 @@ Plugin.prototype.goToNextSlide = function(fromTouch) {
                     index: _this.index
                 });
                 _this.slide(_this.index, fromTouch, false);
-            } else if (_this.s.slideEndAnimatoin) {
+            } else if (_this.s.slideEndAnimation) {
                 utils.addClass(_this.outer, 'lg-right-end');
                 setTimeout(function() {
                     utils.removeClass(_this.outer, 'lg-right-end');
@@ -1008,7 +1008,7 @@ Plugin.prototype.goToPrevSlide = function(fromTouch) {
                     fromTouch: fromTouch
                 });
                 _this.slide(_this.index, fromTouch, false);
-            } else if (_this.s.slideEndAnimatoin) {
+            } else if (_this.s.slideEndAnimation) {
                 utils.addClass(_this.outer, 'lg-left-end');
                 setTimeout(function() {
                     utils.removeClass(_this.outer, 'lg-left-end');
