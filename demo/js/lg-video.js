@@ -1,5 +1,5 @@
 /**!
- * lg-video.js | 1.2.0 | May 20th 2020
+ * lg-video.js | 1.2.1 | September 15th 2020
  * http://sachinchoolur.github.io/lg-video.js
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -270,12 +270,12 @@
             videoTitle = this.core.s.dynamicEl[index].title;
         } else {
             videoTitle = this.core.items[index].getAttribute('title');
-        }
-
-        var firstImage = this.core.items[index].querySelector('img');
-
-        if (firstImage) {
-            videoTitle = videoTitle || firstImage.getAttribute('alt');
+            if (!videoTitle) {
+                var firstImage = this.core.items[index].querySelector('img');
+                if (firstImage) {
+                    videoTitle = firstImage.getAttribute('alt');
+                }
+            }
         }
 
         videoTitle = videoTitle ? 'title="' + videoTitle + '"' : '';
