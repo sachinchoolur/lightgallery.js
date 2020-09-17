@@ -103,7 +103,7 @@ var defaults = {
     dynamic: false,
     dynamicEl: [],
     galleryId: 1,
-    supportLegacyBrowser: false
+    supportLegacyBrowser: true
 };
 
 function Plugin(element, options) {
