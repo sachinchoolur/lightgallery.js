@@ -100,7 +100,8 @@ var defaults = {
 
     dynamic: false,
     dynamicEl: [],
-    galleryId: 1
+    galleryId: 1,
+    supportLegacyBrowser: false
 };
 
 function Plugin(element, options) {
@@ -706,12 +707,15 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
 
         if (_srcset) {
             _img.setAttribute('srcset', _srcset);
-            try {
-                picturefill({
-                    elements: [_img[0]]
-                });
-            } catch (e) {
-                console.error('Make sure you have included Picturefill version 2');
+
+            if (this.s.supportLegacyBrowser) {
+                try {
+                    picturefill({
+                        elements: [_img[0]]
+                    });
+                } catch (e) {
+                    console.error('Make sure you have included Picturefill version 2');
+                }
             }
         }
 
