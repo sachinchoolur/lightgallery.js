@@ -44,7 +44,7 @@
     "babelify": "^7.2.0",
     "bannerify": "^1.0.1",
     "browserify": "^13.0.0",
-    "clean-css": "^3.4.19",
+    "clean-css": "^4.1.11",
     "copyfiles": "^1.0.0",
     "install": "^0.4.4",
     "jshint": "^2.9.2",
