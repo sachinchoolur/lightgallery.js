@@ -47,9 +47,9 @@
     "clean-css": "^3.4.19",
     "copyfiles": "^1.0.0",
     "install": "^0.4.4",
-    "jshint": "^2.9.2",
+    "jshint": "^2.12.0",
     "uglify-js": "^2.4.24",
-    "watchify": "^3.4.0"
+    "watchify": "^3.11.1"
   },
   "scripts": {
     "build": "npm run copyfiles && npm run css && npm run build-debug && npm run build-min",
