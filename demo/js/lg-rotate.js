@@ -1,5 +1,5 @@
 /**!
- * lg-rotate.js | 1.0.0 | September 1st 2020
+ * lg-rotate.js | 1.1.0 | September 19th 2020
  * http://sachinchoolur.github.io/lg-rotate.js
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -55,11 +55,11 @@
 
     Rotate.prototype.buildTemplates = function () {
         var rotateIcons = '';
-        if (this.core.s.flipHorizontal) {
-            rotateIcons += '<button aria-label="Flip horizontal" class="lg-flip-hor lg-icon"></button>';
-        }
         if (this.core.s.flipVertical) {
             rotateIcons += '<button aria-label="flip vertical" class="lg-flip-ver lg-icon"></button>';
+        }
+        if (this.core.s.flipHorizontal) {
+            rotateIcons += '<button aria-label="Flip horizontal" class="lg-flip-hor lg-icon"></button>';
         }
         if (this.core.s.rotateLeft) {
             rotateIcons += '<button aria-label="Rotate left" class="lg-rotate-left lg-icon"></button>';
@@ -104,7 +104,7 @@
 
     Rotate.prototype.applyStyles = function () {
         var image = this.core.___slide[this.core.index].querySelector('.lg-img-rotate');
-        utils.setVendor(image, 'Transform', 'rotate(' + this.rotateValuesList[this.core.index].rotate + 'deg)' + ' scale3d(' + this.rotateValuesList[this.core.index].flipVertical + ', ' + this.rotateValuesList[this.core.index].flipHorizontal + ', 1)');
+        utils.setVendor(image, 'Transform', 'rotate(' + this.rotateValuesList[this.core.index].rotate + 'deg)' + ' scale3d(' + this.rotateValuesList[this.core.index].flipHorizontal + ', ' + this.rotateValuesList[this.core.index].flipVertical + ', 1)');
     };
 
     Rotate.prototype.rotateLeft = function () {
