@@ -1447,13 +1447,9 @@ window.lightGallery = function(el, options) {
             window.lgData[uid] = new Plugin(el, options);
             el.setAttribute('lg-uid', uid);
         } else {
-            try {
-                window.lgData[el.getAttribute('lg-uid')].init();
-            } catch (err) {
-                console.error('lightGallery has not initiated properly');
-            }
+            window.lgData[el.getAttribute('lg-uid')].init();
         }
     } catch (err) {
-        console.error('lightGallery has not initiated properly');
+        console.error('lightGallery has not initiated properly', err);
     }
 };
