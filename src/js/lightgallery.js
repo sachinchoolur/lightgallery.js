@@ -727,7 +727,7 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
                         elements: [_img[0]]
                     });
                 } catch (e) {
-                    console.error('Make sure you have included Picturefill version 2');
+                    console.warn('Make sure you have included Picturefill library in your document');
                 }
             }
         }
