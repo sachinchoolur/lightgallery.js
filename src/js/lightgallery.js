@@ -727,7 +727,8 @@ Plugin.prototype.loadContent = function(index, rec, delay) {
                         elements: [_img[0]]
                     });
                 } catch (e) {
-                    console.warn('Make sure you have included Picturefill library in your document');
+                    console.warn('If you want srcset to be supported for older browsers, ' +
+                        'please include picturefil javascript library in your document.');
                 }
             }
         }
