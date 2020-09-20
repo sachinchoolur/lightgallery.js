@@ -43,6 +43,8 @@ var defaults = {
     addClass: '',
     startClass: 'lg-start-zoom',
     backdropDuration: 150,
+
+    // Set 0, if u don't want to hide the controls 
     hideBarsDelay: 6000,
 
     useLeft: false,
@@ -271,18 +273,29 @@ Plugin.prototype.build = function(index) {
     utils.trigger(_this.el, 'onAfterOpen');
 
     // Hide controllers if mouse doesn't move for some period
-    utils.on(_this.outer, 'mousemove.lg click.lg touchstart.lg', function() {
+    if(_this.s.hideBarsDelay > 0) {
 
-        utils.removeClass(_this.outer, 'lg-hide-items');
-
-        clearTimeout(_this.hideBartimeout);
-
-        // Timeout will be cleared on each slide movement also
-        _this.hideBartimeout = setTimeout(function() {
+        // Hide controls if user doesn't use mouse or touch after opening gallery
+        const initialHideBarTimeout = setTimeout(function() {
             utils.addClass(_this.outer, 'lg-hide-items');
         }, _this.s.hideBarsDelay);
-
-    });
+        utils.on(_this.outer, 'mousemove.lg click.lg touchstart.lg', function() {
+            
+            // Cancel initalHideBarTimout if user uses mouse or touch events
+            // Before it fires
+            clearTimeout(initialHideBarTimeout);
+            
+            utils.removeClass(_this.outer, 'lg-hide-items');
+    
+            clearTimeout(_this.hideBartimeout);
+    
+            // Timeout will be cleared on each slide movement also
+            _this.hideBartimeout = setTimeout(function() {
+                utils.addClass(_this.outer, 'lg-hide-items');
+            }, _this.s.hideBarsDelay);
+    
+        });
+    }
 
 };
 
