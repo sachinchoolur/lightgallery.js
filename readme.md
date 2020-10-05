@@ -44,21 +44,27 @@ lightgallery supports all major browsers including IE 9 and above.
 
 ## Installation
 
-### Install with Bower
+### Install with NPM
 
-You can install `lightgallery` using the [Bower](http://bower.io) package manager.
-
-```sh
-bower install lightgallery.js --save
-```
-
-### npm
-
-You can also find `lightgallery` on [npm](https://www.npmjs.com/).
+You can install `lightgallery` using the [npm](https://www.npmjs.com/) package manager.
 
 ```sh
 npm install lightgallery.js
 ```
+
+### Yarn and Bower
+
+You can also find `lightgallery` on [Bower](http://bower.io) and [Yarn](https://yarnpkg.com/).
+
+```sh
+bower install lightgallery.js --save
+```
+or 
+
+```sh
+yarn add lightgallery.js
+```
+
 
 ### CDN
 
