@@ -36,6 +36,7 @@ Full featured JavaScript lightbox gallery. No dependencies.
 * Keyboard Navigation for desktop.
 * Font icon support.
 * Rotate, flip images.
+* Accessibility support.
 * And many more.
 
 ## Browser support
