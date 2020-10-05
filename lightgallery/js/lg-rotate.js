@@ -1,5 +1,5 @@
 /**!
- * lg-rotate.js | 1.1.0 | September 19th 2020
+ * lg-rotate.js | 1.2.0-beta.0 | October 5th 2020
  * http://sachinchoolur.github.io/lg-rotate.js
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -117,13 +117,42 @@
         this.applyStyles();
     };
 
+    Rotate.prototype.getCurrentRotation = function (el) {
+        if (!el) {
+            return 0;
+        }
+        var st = window.getComputedStyle(el, null);
+        var tm = st.getPropertyValue('-webkit-transform') || st.getPropertyValue('-moz-transform') || st.getPropertyValue('-ms-transform') || st.getPropertyValue('-o-transform') || st.getPropertyValue('transform') || 'none';
+        if (tm !== 'none') {
+            var values = tm.split('(')[1].split(')')[0].split(',');
+            if (values) {
+                var angle = Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI));
+                return angle < 0 ? angle + 360 : angle;
+            }
+        }
+        return 0;
+    };
+
     Rotate.prototype.flipHorizontal = function () {
-        this.rotateValuesList[this.core.index].flipHorizontal *= -1;
+        var rotateEl = this.core.___slide[this.core.index].querySelector('.lg-img-rotate');
+        var currentRotation = this.getCurrentRotation(rotateEl);
+        var rotateAxis = 'flipHorizontal';
+        if (currentRotation === 90 || currentRotation === 270) {
+            rotateAxis = 'flipVertical';
+        }
+        this.rotateValuesList[this.core.index][rotateAxis] *= -1;
         this.applyStyles();
     };
 
     Rotate.prototype.flipVertical = function () {
-        this.rotateValuesList[this.core.index].flipVertical *= -1;
+        var rotateEl = this.core.___slide[this.core.index].querySelector('.lg-img-rotate');
+        var currentRotation = this.getCurrentRotation(rotateEl);
+        var rotateAxis = 'flipVertical';
+        if (currentRotation === 90 || currentRotation === 270) {
+            rotateAxis = 'flipHorizontal';
+        }
+        this.rotateValuesList[this.core.index][rotateAxis] *= -1;
+
         this.applyStyles();
     };
 
