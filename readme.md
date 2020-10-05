@@ -47,7 +47,7 @@ lightgallery supports all major browsers including IE 9 and above.
 
 ### Install with NPM
 
-You can install `lightgallery` using the [npm](https://www.npmjs.com/) package manager.
+You can install `lightgallery.js` using the [npm](https://www.npmjs.com/) package manager.
 
 ```sh
 npm install lightgallery.js
