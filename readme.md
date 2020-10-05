@@ -52,17 +52,15 @@ You can install `lightgallery` using the [npm](https://www.npmjs.com/) package m
 npm install lightgallery.js
 ```
 
-### Yarn and Bower
-
-You can also find `lightgallery` on [Bower](http://bower.io) and [Yarn](https://yarnpkg.com/).
+You can also find `lightgallery` on [Yarn](https://yarnpkg.com/) and [Bower](http://bower.io).
+### Yarn
+```sh
+yarn add lightgallery.js
+```
+### Bower
 
 ```sh
 bower install lightgallery.js --save
-```
-or 
-
-```sh
-yarn add lightgallery.js
 ```
 
 
