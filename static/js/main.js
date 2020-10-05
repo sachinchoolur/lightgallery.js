@@ -11,6 +11,9 @@ $(document).ready(function() {
         speed: 400,
         scale: 1,
         keypress: true,
+        rotateLeft: false,
+        flipHorizontal: false,
+        flipVertical: false,
         mode: 'lg-slide',
         cssEasing: 'cubic-bezier(0.25, 0, 0.25, 1)'
     });
