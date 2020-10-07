@@ -1,1 +1,1 @@
-*.css linguist-language=javascript
+src/sass/* linguist-vendored
