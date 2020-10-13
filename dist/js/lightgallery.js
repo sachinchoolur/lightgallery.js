@@ -1,5 +1,5 @@
 /**!
- * lightgallery.js | 1.3.1 | September 19th 2020
+ * lightgallery.js | 1.4.0 | October 13th 2020
  * http://sachinchoolur.github.io/lightgallery.js/
  * Copyright (c) 2016 Sachin N; 
  * @license GPLv3 
@@ -245,6 +245,8 @@
         addClass: '',
         startClass: 'lg-start-zoom',
         backdropDuration: 150,
+
+        // Set 0, if u don't want to hide the controls 
         hideBarsDelay: 6000,
 
         useLeft: false,
@@ -302,7 +304,8 @@
 
         dynamic: false,
         dynamicEl: [],
-        galleryId: 1
+        galleryId: 1,
+        supportLegacyBrowser: true
     };
 
     function Plugin(element, options) {
@@ -469,17 +472,28 @@
         _lgUtils2.default.trigger(_this.el, 'onAfterOpen');
 
         // Hide controllers if mouse doesn't move for some period
-        _lgUtils2.default.on(_this.outer, 'mousemove.lg click.lg touchstart.lg', function () {
+        if (_this.s.hideBarsDelay > 0) {
 
-            _lgUtils2.default.removeClass(_this.outer, 'lg-hide-items');
-
-            clearTimeout(_this.hideBartimeout);
-
-            // Timeout will be cleared on each slide movement also
-            _this.hideBartimeout = setTimeout(function () {
+            // Hide controls if user doesn't use mouse or touch after opening gallery
+            var initialHideBarTimeout = setTimeout(function () {
                 _lgUtils2.default.addClass(_this.outer, 'lg-hide-items');
             }, _this.s.hideBarsDelay);
-        });
+            _lgUtils2.default.on(_this.outer, 'mousemove.lg click.lg touchstart.lg', function () {
+
+                // Cancel initalHideBarTimout if user uses mouse or touch events
+                // Before it fires
+                clearTimeout(initialHideBarTimeout);
+
+                _lgUtils2.default.removeClass(_this.outer, 'lg-hide-items');
+
+                clearTimeout(_this.hideBartimeout);
+
+                // Timeout will be cleared on each slide movement also
+                _this.hideBartimeout = setTimeout(function () {
+                    _lgUtils2.default.addClass(_this.outer, 'lg-hide-items');
+                }, _this.s.hideBarsDelay);
+            });
+        }
     };
 
     Plugin.prototype.structure = function () {
@@ -510,7 +524,7 @@
         var ariaLabelledby = this.s.ariaLabelledby ? 'aria-labelledby="' + this.s.ariaLabelledby + '"' : '';
         var ariaDescribedby = this.s.ariaDescribedby ? 'aria-describedby="' + this.s.ariaDescribedby + '"' : '';
 
-        template = '<div tabindex="-1" aria-modal="true" ' + ariaLabelledby + ' ' + ariaDescribedby + ' role="dialog" class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + '<div class="lg-toolbar group">' + '<button type="button" aria-label="Close gallery" class="lg-close lg-icon"></button>' + '</div>' + controls + subHtmlCont + '</div>' + '</div>';
+        template = '<div tabindex="-1" aria-modal="true" ' + ariaLabelledby + ' ' + ariaDescribedby + ' role="dialog" class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' + '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' + '<div class="lg-inner">' + list + '</div>' + '<div class="lg-toolbar lg-group">' + '<button type="button" aria-label="Close gallery" class="lg-close lg-icon"></button>' + '</div>' + controls + subHtmlCont + '</div>' + '</div>';
 
         document.body.insertAdjacentHTML('beforeend', template);
         this.outer = document.querySelector('.lg-outer');
@@ -883,12 +897,15 @@
 
             if (_srcset) {
                 _img.setAttribute('srcset', _srcset);
-                try {
-                    picturefill({
-                        elements: [_img[0]]
-                    });
-                } catch (e) {
-                    console.error('Make sure you have included Picturefill version 2');
+
+                if (this.s.supportLegacyBrowser) {
+                    try {
+                        picturefill({
+                            elements: [_img[0]]
+                        });
+                    } catch (e) {
+                        console.warn('If you want srcset to be supported for older browsers, ' + 'please include picturefil javascript library in your document.');
+                    }
                 }
             }
 
@@ -1591,14 +1608,10 @@
                 window.lgData[uid] = new Plugin(el, options);
                 el.setAttribute('lg-uid', uid);
             } else {
-                try {
-                    window.lgData[el.getAttribute('lg-uid')].init();
-                } catch (err) {
-                    console.error('lightGallery has not initiated properly');
-                }
+                window.lgData[el.getAttribute('lg-uid')].init();
             }
         } catch (err) {
-            console.error('lightGallery has not initiated properly');
+            console.error('lightGallery has not initiated properly', err);
         }
     };
 });
