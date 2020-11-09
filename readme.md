@@ -197,7 +197,7 @@ License
 ---
 
 #### Commercial license
-If you want to use lightgallery.js to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. Purchase a lightgallery.js Commercial License at [uplabs.com/posts/lightgallery-js](https://www.uplabs.com/posts/lightgallery-js)
+If you want to use lightgallery.js to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. [Read more about the commercial license](https://sachinchoolur.github.io/lightgallery.js/docs/license.html)
 
 #### Open source license
 
