@@ -905,6 +905,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   position: fixed;
   top: 0;
   left: 0;
+  text-align: left;
   z-index: 1050;
   opacity: 0;
   outline: none;
