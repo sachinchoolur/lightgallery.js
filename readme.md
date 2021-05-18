@@ -8,14 +8,9 @@ Full featured JavaScript lightbox gallery. No dependencies.
 
 ![lightgallery](https://raw.githubusercontent.com/sachinchoolur/lightgallery.js/gh-pages/lightgallery.png)
 
-## Demo
-
-* [lightgallery demo](https://sachinchoolur.github.io/lightgallery.js/)
-* [Codepen demo](https://codepen.io/sachinchoolur/pen/qNyvGW)
 
 
-
-## Version [2.0](https://github.com/sachinchoolur/lightGallery/releases/tag/2.0.0-beta.0)
+## Important notice
 
 - lightgallery.js has been merged with [lightGallery](https://github.com/sachinchoolur/lightGallery). That means, v2 of lightgallery.js is https://www.lightgalleryjs.com/. if you have a lightgallery.js license, this is valid for [lightGallery](https://www.lightgalleryjs.com/) as well. But, since version 2.0 you need to pass the license key as a plugin option. If you alredy have a license, please contact me at contact@lightgallery.js for the license key
 - Completely re-wrote from scratch in typescript 
