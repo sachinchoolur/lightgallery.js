@@ -15,26 +15,15 @@ Full featured JavaScript lightbox gallery. No dependencies.
 
 
 
+## Version [2.0](https://github.com/sachinchoolur/lightGallery/releases/tag/2.0.0-beta.0)
 
---- 
---- 
----
-
-
-## Version [2.0](https://github.com/sachinchoolur/lightGallery/releases/tag/2.0.0-beta.0) update
-
-Version 2.0.0 release is scheduled for May third week. But you can keep using the current version and upgrade whenever you want. 
-The upgrade process is pretty straightforward unless you have a massive modifications made with version 1.x
-
-> [Subscribe](https://www.producthunt.com/upcoming/lightgallery) to get notified on the stable release. - [ProductHunt](https://www.producthunt.com/upcoming/lightgallery)
-
-- This repository will be merged with [lightGallery](https://github.com/sachinchoolur/lightGallery). *Currently, we are managing the jQuery version and vanilla js versions separately.*.
+- lightgallery.js has been merged with [lightGallery](https://github.com/sachinchoolur/lightGallery). That means, v2 of lightgallery.js is https://www.lightgalleryjs.com/. if you have a lightgallery.js license, this is valid for [lightGallery](https://www.lightgalleryjs.com/) as well. But, since version 2.0 you need to pass the license key as a plugin option. If you alredy have a license, please contact me at contact@lightgallery.js for the license key
 - Completely re-wrote from scratch in typescript 
 - Moved all modules to the main repo for better maintainability.
 - Dropped IE 8 and 9 support. Let me know if you still need support for IE 8 and 9. I’ll consider adding a plugin to add support if there is enough demand.
-- [Website](http://sachinchoolur.github.io/lightGallery/v2/)
-- [Docs](http://sachinchoolur.github.io/lightGallery/v2/docs/getting-started/)
-- [Demos](http://sachinchoolur.github.io/lightGallery/v2/demos/inline/)
+- [Website](https://www.lightgalleryjs.com/)
+- [Docs](https://www.lightgalleryjs.com/docs/getting-started/)
+- [Demos](https://www.lightgalleryjs.com/demos/inline/)
 
 
 ##### Any questions, ideas, suggestions about v2? please start a [discussion](https://github.com/sachinchoolur/lightGallery/discussions/988).
