@@ -4,7 +4,7 @@
 
 # lightGallery
 A customizable, modular, responsive, lightbox gallery plugin for jQuery.
-![lightgallery](https://raw.githubusercontent.com/sachinchoolur/lightGallery/master/lib/lg.png)
+![lightgallery](https://www.lightgalleryjs.com/lightgallery-demo.png)
 Demo
 ---
 [JQuery lightGallery demo](http://sachinchoolur.github.io/lightGallery/). [Codepen demo](http://codepen.io/sachinchoolur/details/QjLNMM/) 
